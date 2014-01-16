@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 1.9.3
+before_script:
+  - "sh -e /etc/init.d/xvfb start"
+  - "export DISPLAY=:99.0"
+  - "export JASMINE_SPEC_FORMAT=documentation"
+script:
+  - "bundle exec rake travis:run"
+env:
+  - PG_USERNAME='postgres'
