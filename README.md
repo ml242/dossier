@@ -1,5 +1,21 @@
 #TODO
 
+Data Models
+
+User
+  fb_id
+  meetup_id
+  linkedin_id
+  email
+  first_name
+  last_name
+  picture_url
+  facebook_access_token
+  facebook_expires_at
+
+
+
+
 As "Motherfucking James Bond 007"
   I'd like to be able to create an account for the Dossier App
   So I can use the app
