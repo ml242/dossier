@@ -10,7 +10,10 @@ As "Motherfucking James Bond 007"
   I'd like to be able to login with linkedIn
   So I can see my event lists
 
-  I'd like to be able to load an event list
+  I'd like to be able to login with Meetup
+  So I can see my event lists
+
+  I'd then like to be able to choose a list
   So I can see the other attendees in a more detailed list
 
   I'd like to see the detailed list
