@@ -11,6 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20140117211753) do
+
+  create_table "users", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_night"
+    t.string   "email"
+    t.string   "image_url"
+    t.string   "facebook_id",           :default => "0"
+    t.string   "linkedin_id",           :default => "0"
+    t.string   "meetup_id",             :default => "0"
+    t.string   "facebook_access_token"
+    t.string   "meetup_access_token"
+    t.string   "linkedin_access_token"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
 
 end
