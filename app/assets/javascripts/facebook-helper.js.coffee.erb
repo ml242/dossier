@@ -1,0 +1,60 @@
+<% if Rails.env.development? %>
+fbKey = 762893740391021
+<% elsif Rails.env.test? %>
+fbKey = 762893740391021
+<% elsif Rails.env.production? %>
+fbKey = 683432475029309
+<% end %>
+
+grabPages = ->
+  FB.api "/me/accounts", (response) ->
+    if response and not response.error
+      $pageSelect = $("#album_fb_id")
+      if response.data.length > 0
+        $("#temp-page").remove()
+        i = 0
+
+        while i < response.data.length
+          $option = $("<option>")
+          $option.attr "value", response.data[i].id
+          $option.text response.data[i].name
+          $pageSelect.append $option
+          i++
+        $pageSelect.val window.fb_page  if window.fb_page
+      else
+        $option = $("<option>")
+        $option.text "Create a page on facebook!"
+        $pageSelect.append $option
+
+jQuery ->
+
+  $('body').prepend('<div id="fb-root"></div>')
+
+  ((d, s, id) ->
+    js = undefined
+    fjs = d.getElementsByTagName(s)[0]
+    return  if d.getElementById(id)
+    js = d.createElement(s)
+    js.id = id
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=" + fbKey
+    fjs.parentNode.insertBefore js, fjs
+  ) document, "script", "facebook-jssdk"
+
+  $.ajax
+    url: "#{window.location.protocol}//connect.facebook.net/en_US/all.js"
+    dataType: 'script'
+    cache: true
+
+    window.fbAsyncInit = ->
+
+      $('body').on 'click', '.sign-in', (e) ->
+        e.preventDefault()
+        FB.login ((response) ->
+          <%# requesting scope http://stackoverflow.com/a/12663627/2474735 %>
+          window.location = '/auth/facebook/callback' + '?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse), scope: "email, user_birthday, user_likes, user_location, manage_pages"
+
+      $('.sign-out').click (e) ->
+        FB.getLoginStatus (response) ->
+          FB.logout() if response.authResponse
+        true
+
