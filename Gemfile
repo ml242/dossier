@@ -8,7 +8,6 @@ gem 'rails', '3.2.14'
 gem 'pg'
 
 gem 'newrelic_rpm'
-
 gem 'puma'
 
 gem 'oauth'
