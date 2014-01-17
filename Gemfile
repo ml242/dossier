@@ -7,6 +7,14 @@ gem 'rails', '3.2.14'
 
 gem 'pg'
 
+gem 'newrelic_rpm'
+
+gem 'puma'
+
+gem 'oauth'
+gem 'omniauth-facebook', '1.4.0'
+gem 'koala'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -64,5 +72,5 @@ group :development do
 end
 
 gem "simplecov", :require => false, :group => :test
-gem "thin"
+
 gem "haml-rails"
