@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :fb_id, :meetup_id, :linkedin_id, :email, :first_name, :last_name, :picture_url, :facebook_access_token, :facebook_expires_at
+  attr_accessible :facebook_id, :meetup_id, :linkedin_id, :email, :first_name, :last_name, :picture_url, :facebook_access_token, :facebook_expires_at
 
-  def from_omniauth(auth, user_id)
+  def self.from_omniauth(auth, user_id)
     if user_id
       user = User.find user_id
       user.facebook_id = auth.uid
