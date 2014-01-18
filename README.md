@@ -1,8 +1,8 @@
 #TODO
 
-Data Models
+CHECK Data Models
 
-User
+CHECK User
   fb_id
   meetup_id
   linkedin_id
@@ -13,6 +13,13 @@ User
   facebook_access_token
   facebook_expires_at
 
+Use Koala so
+  if current_user gets me/events before the page loads
+
+
+
+Make toggle function to click off the event
+Interpolate the about me to add text
 
 
 

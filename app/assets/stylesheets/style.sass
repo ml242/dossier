@@ -1,0 +1,35 @@
+img.attendee
+  height: 300px
+  width: 300px
+
+img
+  z-index: 1
+
+.image-wrapper
+  position: relative
+  padding: 0
+  margin: 5px
+  width: 300px
+  height: 300px
+  display: inline-block
+
+.image-text
+  position: absolute
+  top: 0
+  background-color: rgba(255,255,255,0.8)
+  width: 300px
+  height: 300px
+  text-align: center
+  z-index: 10
+  opacity: 0
+  -webkit-transition: all 0.5s ease
+  -moz-transition: all 0.5s ease
+  -o-transition: all 0.5s ease
+  transition: all 0.5s ease
+  h1
+    font-size: 40px
+  h2
+    font-size: 20px
+
+.image-text:hover
+  opacity: 1

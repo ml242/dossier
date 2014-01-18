@@ -11,6 +11,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :facebook_access_token
       t.string :meetup_access_token
       t.string :linkedin_access_token
+      t.datetime :facebook_expires_at
 
       t.timestamps
     end

@@ -1,10 +1,4 @@
-<% if Rails.env.development? %>
 fbKey = 762893740391021
-<% elsif Rails.env.test? %>
-fbKey = 762893740391021
-<% elsif Rails.env.production? %>
-fbKey = 683432475029309
-<% end %>
 
 getFacebookEvents = ->
   FB.api "/me/events", (response) ->
@@ -80,7 +74,7 @@ jQuery ->
       $('body').on 'click', '.fb-sign-in', (e) ->
         e.preventDefault()
         FB.login ((response) ->
-          <%# requesting scope http://stackoverflow.com/a/12663627/2474735 %>
+          
           window.location = '/auth/facebook/callback' + '?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse), scope: "email, user_birthday, user_likes, user_location, user_events"
 
       $('body').on 'click', '.fb-sign-out', (e) ->

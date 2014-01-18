@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20140117211753) do
     t.string   "facebook_access_token"
     t.string   "meetup_access_token"
     t.string   "linkedin_access_token"
+    t.datetime "facebook_expires_at"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end

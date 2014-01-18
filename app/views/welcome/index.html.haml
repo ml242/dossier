@@ -1,5 +1,9 @@
-%h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
+%h1 Dossier up in here
 
-%div#user-login
-  = link_to "Sign in with Facebook", "/auth/facebook"
+- if session[:fb_login]
+  = "Welcome #{current_user.first_name} #{current_user.last_name}!"
+  .fb-sign-out
+    %a{href:'/signout'} Sign out of facebook
+- else
+  .fb-sign-in
+    %a{href:'#'} Sign in with Facebook

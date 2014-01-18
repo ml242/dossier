@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
       user.last_name = auth.info.last_name
       user.facebook_access_token = auth.credentials.token
       user.facebook_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
     else
       user = User.where(facebook_id: auth.uid).first_or_initialize.tap do |user|
         user.facebook_id = auth.uid
@@ -21,6 +20,8 @@ class User < ActiveRecord::Base
         user.facebook_expires_at = Time.at(auth.credentials.expires_at)
       end
     end
+    user.save!
+    user
   end
 
 end
