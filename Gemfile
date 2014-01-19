@@ -10,6 +10,8 @@ gem 'pg'
 gem 'newrelic_rpm'
 gem 'puma'
 
+gem "faraday", "~> 0.8.9"
+
 gem 'oauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'koala'
