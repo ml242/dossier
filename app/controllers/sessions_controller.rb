@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def create
+    binding.pry
     if session[:user_id]
       # if user already has a user_id in session
       # from an alternate login method
@@ -8,6 +9,7 @@ class SessionsController < ApplicationController
       user = User.from_omniauth(env['omniauth.auth'], session[:user_id])
       session[:fb_login] = true
     else
+      binding.pry
       user = User.from_omniauth(env['omniauth.auth'], nil)
       session[:user_id] = user.id
       session[:fb_login] = true
@@ -18,6 +20,9 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:fb_login] = nil
+    session[:session_id] = nil
+    session[:_csrf_token] = nil
+    session[:session_id] = nil
     redirect_to root_url, :notice => "Signed out!"
   end
 
