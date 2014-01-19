@@ -14,12 +14,11 @@ CHECK User
   facebook_expires_at
 
 Use Koala so
-  if current_user gets me/events before the page loads
+  if current_user gets me/events before the page loads CHECK
 
+  Make toggle function to click off the event
 
-
-Make toggle function to click off the event
-Interpolate the about me to add text
+  Interpolate the about me to add text
 
 
 
