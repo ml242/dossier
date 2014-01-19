@@ -8,4 +8,9 @@
   .fb-sign-in
     %a{href:'#'} Sign in with Facebook
 
-- raise
+- if @events
+  %form{:action => "/select"}
+  %select{:name => "events"}
+    %option{:option => "choose an event", :label => "Choose an event"}
+    - @events.each do |event|
+      %option{:option => event["name"], :value => event["name"], :label => event["name"], :id => event["id"]}
