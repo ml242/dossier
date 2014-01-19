@@ -10,7 +10,10 @@
 
 - if @events
   %form{:action => "/select"}
-  %select{:name => "events"}
+  %select{:class => "events-selector"}
     %option{:option => "choose an event", :label => "Choose an event"}
     - @events.each do |event|
-      %option{:option => event["name"], :value => event["name"], :label => event["name"], :id => event["id"]}
+      %option{:option => event["name"], :value => event["id"], :label => event["name"], :id => event["id"]}
+
+
+.event-div

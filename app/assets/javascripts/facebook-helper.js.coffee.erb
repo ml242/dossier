@@ -73,9 +73,9 @@ jQuery ->
 
     window.fbAsyncInit = ->
 
-      setTimeout ->
-        getFacebookEvents()
-      , 1000
+      # setTimeout ->
+      #   getFacebookEvents()
+      # , 1000
 
       $('body').on 'click', '.fb-sign-in', (e) ->
         e.preventDefault()
@@ -88,8 +88,13 @@ jQuery ->
           FB.logout() if response.authResponse
         true
 
-      $('body').on 'click', '.fb-event-item', (e) ->
-        eventId = $(this).attr('data-facebook-id')
+      # $('body').on 'click', '.fb-event-item', (e) ->
+      #   eventId = $(this).attr('data-facebook-id')
+      #   getFacebookEventInfo(eventId)
+      #   getFacebookEventAttendees(eventId)
+
+      $('.events-selector').on 'change', (e) ->
+        eventId = $('.events-selector').find(":selected").val();
         getFacebookEventInfo(eventId)
         getFacebookEventAttendees(eventId)
 
