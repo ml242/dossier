@@ -24,4 +24,9 @@ class User < ActiveRecord::Base
     user
   end
 
+  def get_events_from_fb
+    graph = Koala::Facebook::API.new(self.facebook_access_token)
+    @events = graph.get_connections("me", "events")
+  end
+
 end
