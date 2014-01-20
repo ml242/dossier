@@ -2,7 +2,6 @@ fbKey = 762893740391021
 
 getFacebookEvents = ->
   FB.api "/me/events", (response) ->
-    console.log(response)
     if response and not response.error
       i = 0
       while i < response.data.length
@@ -23,12 +22,16 @@ getFacebookPicture = (fbResponse) ->
     url: "http://graph.facebook.com/" + fbResponse.id + "/picture?type=large&redirect=false&width=400&height=400"
     type: 'GET'
     success: (response) =>
+      # console.log(response)
+      # console.log("that's the response in the picture stuff ^^^")
+
       $aTag = $('<a>')
       $aTag.addClass('image-wrapper')
 
       $('<span>')
         .addClass('image-text')
-        .html("<h1>#{fbResponse.name}</h1><br /><h2>I like boobs</h2>")
+        .addClass('invisible')
+        .html("<h1>#{fbResponse.name}</h1><br /><h2>I like your app.</h2>")
         .appendTo($aTag)
 
       $('<img>')
@@ -36,15 +39,21 @@ getFacebookPicture = (fbResponse) ->
         .addClass('attendee')
         .appendTo($aTag)
 
-      $('body').append($aTag)
+      $('.event-container').append($aTag)
 
 
 getFacebookEventAttendees = (eventId) ->
-  FB.api "/" + eventId + '/attending', (response) ->
-    if response and not response.error
-      for i in [0...response.data.length]
-        getFacebookPicture(response.data[i])
+  FB.api "/" + eventId + '/attending', (peepResponse) ->
+    if peepResponse and not peepResponse.error
+      for i in [0...peepResponse.data.length]
+        getFacebookPicture(peepResponse.data[i])
 
+
+setRSVP = (eventId, RSVPstatus) ->
+  FB.api "/#{eventId}/#{RSVPstatus}", 'post', (response) ->
+    if response == true
+      $('.container').fadeOut(1000)
+      window.location = "/"
 
 jQuery ->
 
@@ -67,29 +76,35 @@ jQuery ->
 
     window.fbAsyncInit = ->
 
-      # setTimeout ->
-      #   getFacebookEvents()
-      # , 1000
-
       $('body').on 'click', '.fb-sign-in', (e) ->
         e.preventDefault()
         FB.login ((response) ->
           
-          window.location = '/auth/facebook/callback' + '?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse), scope: "email, user_birthday, user_likes, user_location, user_events"
+          window.location = '/auth/facebook/callback' + '?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse), scope: "email, user_birthday, user_likes, user_location, user_events, rsvp_event"
 
       $('body').on 'click', '.fb-sign-out', (e) ->
         FB.getLoginStatus (response) ->
           FB.logout() if response.authResponse
         true
 
-      # $('body').on 'click', '.fb-event-item', (e) ->
-      #   eventId = $(this).attr('data-facebook-id')
-      #   getFacebookEventInfo(eventId)
-      #   getFacebookEventAttendees(eventId)
-
       $('.events-selector').on 'change', (e) ->
-        eventId = $('.events-selector').find(":selected").val();
+        $('.event-container').html('')
+        eventId = $('.events-selector').find(":selected").val()
         getFacebookEventInfo(eventId)
         getFacebookEventAttendees(eventId)
 
+      $('.events-invited-selector').on 'change', (e) ->
+        $('.event-container').html('')
+        eventId = $('.events-invited-selector').find(":selected").val()
+        getFacebookEventInfo(eventId)
+        getFacebookEventAttendees(eventId)
 
+      $('.change-rsvp-selector').on 'change', (e) ->
+        RSVPstatus = $(this).val()
+        eventId = $('.events-selector').val()
+        setRSVP(eventId, RSVPstatus)
+
+      $('.set-rsvp-selector').on 'change', (e) ->
+        RSVPstatus = $(this).val()
+        eventId = $('.events-invited-selector').val()
+        setRSVP(eventId, RSVPstatus)
