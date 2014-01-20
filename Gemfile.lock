@@ -59,8 +59,6 @@ GEM
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
-    coffee-rails-source-maps (1.4.0)
-      coffee-script-source (>= 1.6.1)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -291,7 +289,6 @@ DEPENDENCIES
   capybara
   capybara-webkit
   coffee-rails (~> 3.2.1)
-  coffee-rails-source-maps
   coveralls
   cucumber-rails
   database_cleaner

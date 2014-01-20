@@ -70,7 +70,6 @@ group :development do
   gem "better_errors"
   gem "terminal-notifier-guard"
   gem "awesome_print"
-  gem "coffee-rails-source-maps"
 end
 
 gem "simplecov", :require => false, :group => :test
