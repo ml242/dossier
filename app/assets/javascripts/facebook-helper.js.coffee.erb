@@ -64,6 +64,12 @@ setRSVP = (eventId, RSVPstatus) ->
       $('.container').fadeOut(1000)
       window.location = "/"
 
+setRSVP = (eventId, RSVPstatus) ->
+  FB.api "/#{eventId}/#{RSVPstatus}", 'post', (response) ->
+    if response == true
+      $('.container').fadeOut(1000)
+      window.location = "/"
+
 jQuery ->
 
   $('body').prepend('<div id="fb-root"></div>')
@@ -95,6 +101,7 @@ jQuery ->
         e.preventDefault()
         $.ajax
           url: "https://api.meetup.com/oauth/request/" + muKey
+
 
       $('body').on 'click', '.fb-sign-out', (e) ->
         FB.getLoginStatus (response) ->

@@ -48,7 +48,16 @@ getFacebookEventAttendees = (eventId) ->
     if peepResponse and not peepResponse.error
       for i in [0...peepResponse.data.length]
         getFacebookPicture(peepResponse.data[i])
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1c81d88138f38642f49d2cdc45b889aa41d5941e
+
+setRSVP = (eventId, RSVPstatus) ->
+  FB.api "/#{eventId}/#{RSVPstatus}", 'post', (response) ->
+    if response == true
+      $('.container').fadeOut(1000)
+      window.location = "/"
 
 setRSVP = (eventId, RSVPstatus) ->
   FB.api "/#{eventId}/#{RSVPstatus}", 'post', (response) ->
@@ -82,11 +91,14 @@ jQuery ->
         FB.login ((response) ->
           
           window.location = '/auth/facebook/callback' + '?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse), scope: "email, user_birthday, user_likes, user_location, user_events, rsvp_event"
+<<<<<<< HEAD
 
       $('body').on 'click', '.mu-sign-in', (e) ->
         e.preventDefault()
         $.ajax
           url: "https://api.meetup.com/oauth/request/" + muKey
+=======
+>>>>>>> 1c81d88138f38642f49d2cdc45b889aa41d5941e
 
       $('body').on 'click', '.fb-sign-out', (e) ->
         FB.getLoginStatus (response) ->

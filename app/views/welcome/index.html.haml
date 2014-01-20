@@ -11,31 +11,38 @@
     %a{href:'#'} Sign in with Meetup
 
 - if @events
-  %select{:class => "events-selector"}
-    %option{:label => "Choose an event you're attending"}
+
+  %select.events-selector
+    %option Choose an event you're attending
     - @events.each do |event|
-      %option{:option => event["name"], :value => event["id"], :label => "#{event["start_time"].to_datetime.strftime("%B %d, %Y")}  |  #{event["name"]}", :id => event["id"]}
+      %option{:value => event["id"]}
+        = "#{event['start_time'].to_datetime.strftime("%B %d, %Y")}  |  #{event['name']}"
 
-  %select{:class => "change-rsvp-selector"}
-    %option{:label => "Change your RSVP Status"}
-    %option{:label => "Going", :value => "attending"}
-    %option{:label => "Not-Going", :value => "declined"}
-    %option{:label => "Maybe", :value => "maybe"}
+  %select.change-rsvp-selector
+    %option{:value => nil} Change your RSVP Status
+    %option{:value => "attending"} Going
+    %option{:value => "declined"} Not-Going
+    %option{:value => "maybe"} Maybe
 
 
-- if @events_invited
-  %select{:class => "events-invited-selector"}
-    %option{:label => "RSVP to an Event"}
+- if @events_invited || @events_maybe
+
+  %select.events-invited-selector
+    %option RSVP to an Event
+
     - @events_invited.each do |event|
-      %option{:option => event["name"], :value => event["id"], :label => "#{event["start_time"].to_datetime.strftime("%B %d, %Y")}  |  #{event["name"]}", :id => event["id"]}
-      - @events_maybe.each do |event|
-        %option{:option => event["name"], :value => event["id"], :label => "#{event["start_time"].to_datetime.strftime("%B %d, %Y")}  |  #{event["name"]}", :id => event["id"]}
+      %option{:value => event["id"]}
+        = "#{event["start_time"].to_datetime.strftime("%B %d, %Y")}  |  #{event["name"]}"
 
-  %select{:class => "set-rsvp-selector"}
-    %option{:label => "Change your RSVP Status"}
-    %option{:label => "Going", :value => "attending"}
-    %option{:label => "Not-Going", :value => "declined"}
-    %option{:label => "Maybe", :value => "maybe"}
+    - @events_maybe.each do |event|
+      %option{:value => event["id"]}
+        = "#{event["start_time"].to_datetime.strftime("%B %d, %Y")}  |  #{event["name"]}"
+
+  %select.set-rsvp-selector
+    %option Change your RSVP Status
+    %option{:value => "attending"} Going
+    %option{:value => "declined"} Not-Going
+    %option{:value => "maybe"} Maybe
 
 
 .event-container
