@@ -3,7 +3,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   APP_SECRET = ENV['DOSSIER_FACEBOOK_SECRET']
   provider :facebook, APP_ID, APP_SECRET, {:provider_ignores_state => true}
   Key = ENV['Meetup_ID']
-  Secret = Env['Meetup_Secret']
+  Secret = ENV['Meetup_Secret']
   provider :meetup, Key, Secret
 end
 

@@ -1,12 +1,14 @@
 %h1 Dossier up in here
 
-- if session[:fb_login]
+- if session[:fb_login] || session[:mu_login]
   = "Welcome #{current_user.first_name} #{current_user.last_name}!"
   .fb-sign-out
     %a{href:'/signout'} Sign out of facebook
 - else
   .fb-sign-in
     %a{href:'#'} Sign in with Facebook
+  .mu-sign-in
+    %a{href:'#'} Sign in with Meetup
 
 - if @events
   %select{:class => "events-selector"}

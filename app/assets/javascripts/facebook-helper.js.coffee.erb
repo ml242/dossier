@@ -1,9 +1,12 @@
 <% if Rails.env.development? %>
 fbKey = 762893740391021
+muKey = omj5dcb538pauaf06fs7pc7888
 <% elsif Rails.env.test? %>
 fbKey = 762893740391021
+muKey = omj5dcb538pauaf06fs7pc7888
 <% elsif Rails.env.production? %>
 fbKey = 683432475029309
+muKey = omj5dcb538pauaf06fs7pc7888
 <% end %>
 
 getFacebookEvents = ->
@@ -87,6 +90,14 @@ jQuery ->
         FB.login ((response) ->
           <%# requesting scope http://stackoverflow.com/a/12663627/2474735 %>
           window.location = '/auth/facebook/callback' + '?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse), scope: "email, user_birthday, user_likes, user_location, user_events, rsvp_event"
+
+      $('body').on 'click', '.mu-sign-in', (e) ->
+        e.preventDefault()
+        $.ajax
+          url: "https://api.meetup.com/oauth/request/" + muKey
+
+
+
 
       $('body').on 'click', '.fb-sign-out', (e) ->
         FB.getLoginStatus (response) ->
