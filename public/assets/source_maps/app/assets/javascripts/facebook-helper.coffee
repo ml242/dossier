@@ -1,4 +1,5 @@
 fbKey = 762893740391021
+muKey = omj5dcb538pauaf06fs7pc7888
 
 getFacebookEvents = ->
   FB.api "/me/events", (response) ->
@@ -81,6 +82,11 @@ jQuery ->
         FB.login ((response) ->
           
           window.location = '/auth/facebook/callback' + '?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse), scope: "email, user_birthday, user_likes, user_location, user_events, rsvp_event"
+
+      $('body').on 'click', '.mu-sign-in', (e) ->
+        e.preventDefault()
+        $.ajax
+          url: "https://api.meetup.com/oauth/request/" + muKey
 
       $('body').on 'click', '.fb-sign-out', (e) ->
         FB.getLoginStatus (response) ->
