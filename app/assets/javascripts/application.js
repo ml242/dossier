@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //
+//= require fastclick
+//= require fastclick-helper
+//
 //= require facebook-helper
 //= require image-text-helper

@@ -14,11 +14,11 @@
     - @events.each do |event|
       %option{:option => event["name"], :value => event["id"], :label => "#{event["start_time"].to_datetime.strftime("%B %d, %Y")}  |  #{event["name"]}", :id => event["id"]}
 
-%select{:class => "change-rsvp-selector"}
-  %option{:label => "Change your RSVP Status"}
-  %option{:label => "Going", :value => "attending"}
-  %option{:label => "Not-Going", :value => "declined"}
-  %option{:label => "Maybe", :value => "maybe"}
+  %select{:class => "change-rsvp-selector"}
+    %option{:label => "Change your RSVP Status"}
+    %option{:label => "Going", :value => "attending"}
+    %option{:label => "Not-Going", :value => "declined"}
+    %option{:label => "Maybe", :value => "maybe"}
 
 
 - if @events_invited
@@ -29,11 +29,11 @@
       - @events_maybe.each do |event|
         %option{:option => event["name"], :value => event["id"], :label => "#{event["start_time"].to_datetime.strftime("%B %d, %Y")}  |  #{event["name"]}", :id => event["id"]}
 
-%select{:class => "set-rsvp-selector"}
-  %option{:label => "Change your RSVP Status"}
-  %option{:label => "Going", :value => "attending"}
-  %option{:label => "Not-Going", :value => "declined"}
-  %option{:label => "Maybe", :value => "maybe"}
+  %select{:class => "set-rsvp-selector"}
+    %option{:label => "Change your RSVP Status"}
+    %option{:label => "Going", :value => "attending"}
+    %option{:label => "Not-Going", :value => "declined"}
+    %option{:label => "Maybe", :value => "maybe"}
 
 
 .event-container
