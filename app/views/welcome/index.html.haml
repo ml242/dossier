@@ -1,53 +1,58 @@
 .header
-  %h1 Dossier up in here
+  .header-inner
+    .header-partition
+      %h1 Dossier up in here
+    .header-partition
+      - if session[:fb_login]
+        .fb-sign-out
+          %a{href:'/signout'} Sign out of Facebook
+      - else
+        .fb-sign-in
+          %a{href:'#'} Sign in with Facebook
+    .header-partition
+      - if session[:mu_login]
+        .mu-sign-out
+          %a{href:'#'} Sign out of Meetup
+      - else
+        .mu-sign-in
+          %a{href:'#'} Sign in with Meetup
 
-  - if session[:fb_login]
-    .fb-sign-out
-      %a{href:'/signout'} Sign out of Facebook
-  - else
-    .fb-sign-in
-      %a{href:'#'} Sign in with Facebook
+.container
+  .sub-header
+    - if @events
 
-  - if session[:mu_login]
-    .mu-sign-out
-      %a{href:'#'} Sign out of Meetup
-  - else
-    .mu-sign-in
-      %a{href:'#'} Sign in with Meetup
+      %select.events-selector
+        %option Events you're going to!
+        - @events.each do |event|
+          %option{:value => event["id"]}
+            = "#{event['start_time'].to_datetime.strftime("%B %d, %Y")}  |  #{event['name']}"
 
-- if @events
+      %select.change-rsvp-selector
+        %option{:value => nil} RSVP
+        %option{:value => "attending"} Going
+        %option{:value => "declined"} Not-Going
+        %option{:value => "maybe"} Maybe
 
-  %select.events-selector
-    %option Choose an event you're attending
-    - @events.each do |event|
-      %option{:value => event["id"]}
-        = "#{event['start_time'].to_datetime.strftime("%B %d, %Y")}  |  #{event['name']}"
+      %br
+      %br
+    - if @events_invited || @events_maybe
 
-  %select.change-rsvp-selector
-    %option{:value => nil} Change your RSVP Status
-    %option{:value => "attending"} Going
-    %option{:value => "declined"} Not-Going
-    %option{:value => "maybe"} Maybe
+      %select.events-invited-selector
+        %option Events you're not attending
 
+        - @events_invited.each do |event|
+          %option{:value => event["id"]}
+            = "#{event["start_time"].to_datetime.strftime("%B %d, %Y")}  |  #{event["name"]}"
 
-- if @events_invited || @events_maybe
+        - @events_maybe.each do |event|
+          %option{:value => event["id"]}
+            = "#{event["start_time"].to_datetime.strftime("%B %d, %Y")}  |  #{event["name"]}"
 
-  %select.events-invited-selector
-    %option RSVP to an Event
-
-    - @events_invited.each do |event|
-      %option{:value => event["id"]}
-        = "#{event["start_time"].to_datetime.strftime("%B %d, %Y")}  |  #{event["name"]}"
-
-    - @events_maybe.each do |event|
-      %option{:value => event["id"]}
-        = "#{event["start_time"].to_datetime.strftime("%B %d, %Y")}  |  #{event["name"]}"
-
-  %select.set-rsvp-selector
-    %option Change your RSVP Status
-    %option{:value => "attending"} Going
-    %option{:value => "declined"} Not-Going
-    %option{:value => "maybe"} Maybe
+      %select.set-rsvp-selector
+        %option RSVP
+        %option{:value => "attending"} Going
+        %option{:value => "declined"} Not-Going
+        %option{:value => "maybe"} Maybe
 
 
-.event-container
+  .event-container
