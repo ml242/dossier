@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //
 //= require facebook-helper
+//= require image-text-helper

@@ -14,12 +14,16 @@ CHECK User
   facebook_expires_at
 
 Use Koala so
-  if current_user gets me/events before the page loads CHECK
+<!--   if current_user gets me/events before the page loads CHECK
+ -->
+ <!-- Make toggle function to click off the event -->
+Interpolate the about me to add text!!!
 
-  Make toggle function to click off the event
-
-  Interpolate the about me to add text
-
+Should make it so user can RSVP to events to add them to list
+  half way there changed scope
+<!-- Should make it so click instead of hover displays name
+ -->
+ Add permissions check to Koala
 
 
 As "Motherfucking James Bond 007"
