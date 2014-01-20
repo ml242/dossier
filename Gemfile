@@ -12,6 +12,7 @@ gem 'puma'
 
 gem 'oauth'
 gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-meetup'
 gem 'koala'
 
 
