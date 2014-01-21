@@ -1,0 +1,32 @@
+<% if Rails.env.development? %>
+fsqKey = ENV['ClIENT_ID']
+<% elsif Rails.env.test? %>
+fsqKey = ENV['ClIENT_ID']
+<% elsif Rails.env.production? %>
+fsqKey = ENV['ClIENT_ID']
+<% end %>
+
+
+
+ var config = {
+    apiKey: fsqKey,
+    authUrl: 'https://foursquare.com/',
+    apiUrl: 'https://api.foursquare.com/'
+  };
+
+  function doAuthRedirect() {
+    var redirect = window.location.href.replace(window.location.hash, '');
+    var url = config.authUrl + 'oauth2/authenticate?response_type=token&client_id=' + config.apiKey +
+        '&redirect_uri=' + encodeURIComponent(redirect) +
+        '&state=' + encodeURIComponent($.bbq.getState('req') || 'users/self');
+    window.location.href = url;
+  };
+
+  if ($.bbq.getState('access_token')) {
+    // If there is a token in the state, consume it
+    var token = $.bbq.getState('access_token');
+    $.bbq.pushState({}, 2)
+  } else if ($.bbq.getState('error')) {
+  } else {
+    doAuthRedirect();
+  }

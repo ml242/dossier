@@ -18,4 +18,4 @@
 //
 //= require facebook-helper
 //= require image-text-helper
-//= require meetup-helper
+//= require fsq-helper
