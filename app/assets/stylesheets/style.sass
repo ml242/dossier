@@ -1,22 +1,66 @@
 *
   -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  font-family: helvetica, sans-serif
+  letter-spacing: 1px
+a
+  color: #fff
+  text-decoration: none
+  &:hover
+    color: #fff
+    text-decoration: underline
+  &:active
+    color: #fff
+    text-decoration: underline
+  &:visited
+    color: #fff
+    text-decoration: none
 
 .header
-  height: 40px
+  height: 60px
   width: 100%
   text-align: center
-  border-bottom: 1px solid #000
-  background: grey
+  color: #fff
+  background: #4e68c7
+  font-size: 25px
+  -moz-box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891,2px 3px 1px #3852b1,4px 3px 1px #203891,3px 4px 1px #3852b1,5px 4px 1px #203891,4px 5px 1px #3852b1,6px 5px 1px #203891
+  -webkit-box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891,2px 3px 1px #3852b1,4px 3px 1px #203891,3px 4px 1px #3852b1,5px 4px 1px #203891,4px 5px 1px #3852b1,6px 5px 1px #203891
+  box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891,2px 3px 1px #3852b1,4px 3px 1px #203891,3px 4px 1px #3852b1,5px 4px 1px #203891,4px 5px 1px #3852b1,6px 5px 1px #203891
+  h1
+    margin: 5px 0 0 0
+    font-family: helvetica, sans-serif
+    font-size: 50px
+    text-shadow: -1px 0 rgba(32, 56, 145, 0.29), 0 1px rgba(32, 56, 145, 0.29), 1px 0 rgba(32, 56, 145, 0.29), 0 -1px rgba(32, 56, 145, 0.29)
 
 .header-inner
-  max-width: 800px
+  width: 700px
   margin: 0 auto
 
 .header-partition
+  vertical-align: middle
   display: inline
   float: left
   width: 200px
-  border-right: 1px solid #000
+  margin: 0 15px
+
+.fb-sign-in, .fb-sign-out
+  cursor: pointer
+  font-family: helvetica, sans-serif
+  text-shadow: -1px 0 rgba(32, 56, 145, 0.29), 0 1px rgba(32, 56, 145, 0.29), 1px 0 rgba(32, 56, 145, 0.29), 0 -1px rgba(32, 56, 145, 0.29)
+  height: 60px
+  padding: 10px 0 0 0
+  border-top: 10px solid #4e68c7
+  background: url('facebook-logo-small.png') no-repeat
+
+.mu-sign-in, .mu-sign-out
+  cursor: pointer
+  font-family: helvetica, sans-serif
+  text-shadow: -1px 0 rgba(32, 56, 145, 0.29), 0 1px rgba(32, 56, 145, 0.29), 1px 0 rgba(32, 56, 145, 0.29), 0 -1px rgba(32, 56, 145, 0.29)
+  height: 60px
+  padding: 10px 0 0 0
+  border-top: 10px solid #4e68c7
+  background: url('meetup-logo-small.png') no-repeat
 
 .container
   max-width: 1000px
@@ -29,16 +73,36 @@
 .events-selector, .events-invited-selector
   width: 420px
   height: 50px
-  background: #c0ffee
+  background: #4e68c7
+  color: #fff
   font-size: 25px
   padding: 0 0 0 20px
+  border: 0
+  border-radius: 0
+  -moz-box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891,2px 3px 1px #3852b1,4px 3px 1px #203891,3px 4px 1px #3852b1,5px 4px 1px #203891,4px 5px 1px #3852b1,6px 5px 1px #203891
+  -webkit-box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891,2px 3px 1px #3852b1,4px 3px 1px #203891,3px 4px 1px #3852b1,5px 4px 1px #203891,4px 5px 1px #3852b1,6px 5px 1px #203891
+  box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891,2px 3px 1px #3852b1,4px 3px 1px #203891,3px 4px 1px #3852b1,5px 4px 1px #203891,4px 5px 1px #3852b1,6px 5px 1px #203891
+
+.events-invited-selector
+  position: relative
+  left: -3px
 
 .change-rsvp-selector, .set-rsvp-selector
   width: 105px
   height: 50px
-  background: #c0ffee
+  color: #fff
+  background: #4e68c7
+  border: 0
+  border-radius: 0
   font-size: 25px
-  padding: 0 0 0 20px
+  padding: 0 0 0 17px
+  -moz-box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891,2px 3px 1px #3852b1,4px 3px 1px #203891,3px 4px 1px #3852b1,5px 4px 1px #203891,4px 5px 1px #3852b1,6px 5px 1px #203891
+  -webkit-box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891,2px 3px 1px #3852b1,4px 3px 1px #203891,3px 4px 1px #3852b1,5px 4px 1px #203891,4px 5px 1px #3852b1,6px 5px 1px #203891
+  box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891,2px 3px 1px #3852b1,4px 3px 1px #203891,3px 4px 1px #3852b1,5px 4px 1px #203891,4px 5px 1px #3852b1,6px 5px 1px #203891
+
+.change-rsvp-selector
+  position: relative
+  left: 3px
 
 img.attendee
   height: 300px
@@ -55,9 +119,13 @@ img
   height: 300px
   display: inline-block
 
+
 .image-text
   position: absolute
   top: 0
+  padding: 15px 0 0 0
+  color: #000
+  font-family: helvetica, sans-serif
   background-color: rgba(255,255,255,0.8)
   width: 300px
   height: 300px
