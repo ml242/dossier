@@ -1,21 +1,21 @@
 .header
   .header-inner
     .header-partition
-      %h1 Dossier up in here
+      %h1 Dossier
     .header-partition
       - if session[:fb_login]
         .fb-sign-out
-          %a{href:'/signout'} Sign out of Facebook
+          Log Out
       - else
         .fb-sign-in
-          %a{href:'#'} Sign in with Facebook
+          Log In
     .header-partition
       - if session[:mu_login]
-        .mu-sign-out
-          %a{href:'#'} Sign out of Meetup
-      - else
         .mu-sign-in
-          %a{href:'#'} Sign in with Meetup
+          Log Out
+      - else
+        .mu-sign-out
+          Log In
 
 .container
   .sub-header

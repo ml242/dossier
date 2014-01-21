@@ -1,0 +1,11 @@
+%html
+  %head
+    %title Dossier
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    %meta{content:"width=device-width", name:"viewport"}
+    %meta{name:"apple-mobile-web-app-capable", content:"yes"}
+    = csrf_meta_tags
+
+  %body
+    = yield
