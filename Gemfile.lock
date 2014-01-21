@@ -165,7 +165,7 @@ GEM
       rack (~> 1.0)
     omniauth-facebook (1.4.0)
       omniauth-oauth2 (~> 1.0.2)
-    omniauth-meetup (0.0.7)
+    omniauth-foursquare (0.0.8)
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.0)
     omniauth-oauth2 (1.0.3)
@@ -303,7 +303,7 @@ DEPENDENCIES
   newrelic_rpm
   oauth
   omniauth-facebook (= 1.4.0)
-  omniauth-meetup
+  omniauth-foursquare
   pg
   pry-rails
   puma

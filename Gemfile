@@ -14,7 +14,7 @@ gem "faraday", "~> 0.8.9"
 
 gem 'oauth'
 gem 'omniauth-facebook', '1.4.0'
-gem 'omniauth-meetup'
+gem 'omniauth-foursquare'
 gem 'koala'
 
 

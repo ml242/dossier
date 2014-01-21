@@ -25,6 +25,9 @@ Should make it so user can RSVP to events to add them to list
  -->
  Add permissions check to Koala
 
+ Add location functionality
+  Add Foursquare API see who is coming, who is confirmed
+
 
 As "Motherfucking James Bond 007"
   I'd like to be able to create an account for the Dossier App

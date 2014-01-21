@@ -8,12 +8,12 @@
     .fb-sign-in
       %a{href:'#'} Sign in with Facebook
 
-  - if session[:mu_login]
-    .mu-sign-out
-      %a{href:'#'} Sign out of Meetup
-  - else
-    .mu-sign-in
-      %a{href:'#'} Sign in with Meetup
+  / - if session[:mu_login]
+  /   .mu-sign-out
+  /     %a{href:'#'} Sign out of Meetup
+  / - else
+  /   .mu-sign-in
+  /     %a{href:'#'} Sign in with Meetup
 
 - if @events
 

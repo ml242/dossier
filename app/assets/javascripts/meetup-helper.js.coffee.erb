@@ -8,7 +8,10 @@ muKey = "omj5dcb538pauaf06fs7pc7888"
 
 
 
-$('body').on 'click', '.mu-sign-in', (e) ->
-  e.preventDefault()
-  $.ajax
-    url: "http://www.meetup.com/authenticate/?" + muKey + "=request_token_key"
+# $('body').on 'click', '.mu-sign-in', (e) ->
+#   e.preventDefault()
+#   $.ajax
+#     url:
+#       "https://api.meetup.com/oauth/request/"
+#       "http://www.meetup.com/authenticate/?" + muKey + "=request_token_key"
+#       "https://api.meetup.com/oauth/access/"
