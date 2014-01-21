@@ -97,7 +97,9 @@ jQuery ->
 
       $('body').on 'click', '.fb-sign-out', (e) ->
         FB.getLoginStatus (response) ->
-          FB.logout() if response.authResponse
+          if response.authResponse
+            FB.logout()
+            window.location = '/signout'
         true
 
       $('.events-selector').on 'change', (e) ->
