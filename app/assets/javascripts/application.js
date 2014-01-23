@@ -18,4 +18,5 @@
 //
 //= require facebook-helper
 //= require image-text-helper
-//= require fsq-helper
+//
+//  require fsq-helper
