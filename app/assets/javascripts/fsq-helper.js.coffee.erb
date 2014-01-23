@@ -1,10 +1,10 @@
-# <% if Rails.env.development? %>
-# fsqKey = ENV['ClIENT_ID']
-# <% elsif Rails.env.test? %>
-# fsqKey = ENV['ClIENT_ID']
-# <% elsif Rails.env.production? %>
-# fsqKey = ENV['ClIENT_ID']
-# <% end %>
+<% if Rails.env.development? %>
+fsqKey = ENV['ClIENT_ID']
+<% elsif Rails.env.test? %>
+fsqKey = ENV['ClIENT_ID']
+<% elsif Rails.env.production? %>
+fsqKey = ENV['ClIENT_ID']
+<% end %>
 
 # doAuthRedirect = ->
 #   redirect = window.location.href.replace(window.location.hash, "")
