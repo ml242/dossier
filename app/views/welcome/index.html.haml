@@ -35,11 +35,11 @@
 
       %br
       %br
+
     - if @events_invited || @events_maybe
 
       %select.events-invited-selector
         %option Events you're not attending
-
         - @events_invited.each do |event|
           %option{:value => event["id"]}
             = "#{event["start_time"].to_datetime.strftime("%B %d, %Y")}  |  #{event["name"]}"
