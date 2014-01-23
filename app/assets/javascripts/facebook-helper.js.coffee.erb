@@ -53,7 +53,6 @@ getFacebookEventAttendees = (eventId) ->
     if peepResponse and not peepResponse.error
       for i in [0...peepResponse.data.length]
         getFacebookPicture(peepResponse.data[i])
-        console.log(peepResponse)
 
 
 setRSVP = (eventId, RSVPstatus) ->
