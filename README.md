@@ -17,16 +17,20 @@ Use Koala so
 <!--   if current_user gets me/events before the page loads CHECK
  -->
  <!-- Make toggle function to click off the event -->
-Interpolate the about me to add text!!!
+  Interpolate the about me to add text!!!
 
-Should make it so user can RSVP to events to add them to list
+<!-- Should make it so user can RSVP to events to add them to list
   half way there changed scope
-<!-- Should make it so click instead of hover displays name
+ --><!-- Should make it so click instead of hover displays name
  -->
  Add permissions check to Koala
 
  Add location functionality
   Add Foursquare API see who is coming, who is confirmed
+
+Figure out why the events invited/not replied to is so slow
+
+why doesnt the text toggle locally? Don't want to break the thing.
 
 
 As "Motherfucking James Bond 007"
