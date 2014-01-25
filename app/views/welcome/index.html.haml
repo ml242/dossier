@@ -10,13 +10,8 @@
         .fb-sign-in
           Log In
     .header-partition
-      - if session[:linkedin_login]
-        .linkedin-sign-in
-          Log Out
-      - else
-        %script type="IN/login"
-        .linked-sign-out
-          Log In
+      %script{type:"IN/login"}
+        You're logged into linkedin
 
 .container
   .sub-header
