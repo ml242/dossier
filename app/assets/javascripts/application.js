@@ -17,6 +17,4 @@
 //= require fastclick-helper
 //
 //= require facebook-helper
-//= require in
-//= require linkedin-helper
 //= require image-text-helper
