@@ -1,0 +1,3 @@
+function onLinkedInAuth() {
+  $.post('/linkedinauth');
+}

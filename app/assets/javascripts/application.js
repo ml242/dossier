@@ -17,4 +17,7 @@
 //= require fastclick-helper
 //
 //= require facebook-helper
+//= require linked-in-helper
+//
 //= require image-text-helper
+//
