@@ -27,10 +27,19 @@ Use Koala so
 
  Add location functionality
   Add Foursquare API see who is coming, who is confirmed
+<!--
+Figure out why the events invited/not replied to is so slow -->
 
-Figure out why the events invited/not replied to is so slow
+<!-- why doesnt the text toggle locally? Don't want to break the thing.
+ -->
 
-why doesnt the text toggle locally? Don't want to break the thing.
+Event title gets displayed at the top
+Game mode can start with a toggle check box.
+
+Game mode
+10 right guesses | 3 wrongs to increment counter
+Strikethrough on wrong name of each
+Names are pulled from the list of everyone going
 
 
 As "Motherfucking James Bond 007"

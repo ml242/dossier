@@ -10,11 +10,12 @@
         .fb-sign-in
           Log In
     .header-partition
-      - if session[:mu_login]
-        .mu-sign-in
+      - if session[:linkedin_login]
+        .linkedin-sign-in
           Log Out
       - else
-        .mu-sign-out
+        %script type="IN/login"
+        .linked-sign-out
           Log In
 
 .container

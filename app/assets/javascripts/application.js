@@ -17,10 +17,6 @@
 //= require fastclick-helper
 //
 //= require facebook-helper
+//= require in
+//= require linkedin-helper
 //= require image-text-helper
-<<<<<<< HEAD
-//
-//  require fsq-helper
-=======
-//= require fsq-helper
->>>>>>> parent of 64734e0... assets are again compiling

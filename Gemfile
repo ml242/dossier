@@ -15,8 +15,10 @@ gem "faraday", "~> 0.8.9"
 gem 'oauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'koala'
-gem 'omniauth-foursquare'
-gem 'foursquare2'
+# gem 'omniauth-foursquare'
+# gem 'foursquare2'
+gem 'omniauth-linkedin'
+gem 'linkedin'
 
 
 # Gems used only for assets and not required
