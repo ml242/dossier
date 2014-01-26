@@ -17,11 +17,20 @@ class SessionsController < ApplicationController
         session[:linkedin_login] = true
       end
     end
+    binding.pry
     redirect_to root_url
   end
 
   def linked_in_auth
     binding.pry
+    user = User.from_omniauth(env['omniauth.auth'], nil)
+      binding.pry
+      session[:user_id] = user.id
+      if current_user[:linkedin_access_token]
+        session[:linkedin_login] = true
+      end
+    end
+    redirect_to root_url
   end
 
   def destroy
