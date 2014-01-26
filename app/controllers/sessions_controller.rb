@@ -20,6 +20,10 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
+  def linked_in_auth
+    binding.pry
+  end
+
   def destroy
     reset_session
     # session[:user_id] = nil
