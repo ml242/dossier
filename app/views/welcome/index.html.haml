@@ -16,7 +16,13 @@
           Log Out
       - else
         .linked-sign-in
-          %script{type:"IN/login", 'data-onAuth' => "onLinkedInAuth"}
+          %script{type: "IN/Login", 'data-onAuth' => "onLinkedInAuth"}
+            :cdata
+            <?js if (pictureUrl) { ?>
+            <img src="<?js= pictureUrl ?>"></img>
+            <?js } else { ?>
+            <p>Upload a photo, so we can see what you look like.</p>
+            <?js } ?>
 
 .container
   .sub-header
