@@ -25,8 +25,7 @@ Use Koala so
  -->
  Add permissions check to Koala
 
- Add location functionality
-  Add Foursquare API see who is coming, who is confirmed
+
 <!--
 Figure out why the events invited/not replied to is so slow -->
 
