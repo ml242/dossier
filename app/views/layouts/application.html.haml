@@ -14,24 +14,5 @@
       api_key: 77m7x30ie4sdmo
       authorize: true
       credentials_cookie: true
-      scope: r_fullprofile r_emailaddress r_contactinfo r_network
-      onLoad: onLinkedInLoad
-
-
-    :javascript
-      // 2. Runs when the JavaScript framework is loaded
-        function onLinkedInLoad() {
-          IN.Event.on(IN, "auth", onLinkedInAuth);
-      }
-
-      // 2. Runs when the viewer has authenticated
-      function onLinkedInAuth() {
-        IN.API.Profile("me").result(displayProfiles);
-      }
-
-      // 2. Runs when the Profile() API call returns successfully
-      function displayProfiles(profiles) {
-        member = profiles.values[0];
-        document.getElementById("profiles").innerHTML =
-        "<p id=\"" + member.id + "\">Hello " +  member.firstName + " " + member.lastName + "</p>";
-      }
+      scope: r_fullprofile r_emailaddress r_network rw_groups
+      fields: id firstName lastName headline

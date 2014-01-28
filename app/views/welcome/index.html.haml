@@ -10,19 +10,11 @@
         .fb-sign-in
           Log In
     .header-partition
-      - if session[:linkedin_login]
-        .linked-sign-out
-          %script{type="IN/logout"}
-          Log Out
-      - else
-        .linked-sign-in
-          %script{type: "IN/Login", 'data-onAuth' => "onLinkedInAuth"}
-            :cdata
-            <?js if (pictureUrl) { ?>
-            <img src="<?js= pictureUrl ?>"></img>
-            <?js } else { ?>
-            <p>Upload a photo, so we can see what you look like.</p>
-            <?js } ?>
+      .linked-sign-in
+        Log In
+        %script{type:"IN/login", 'data-onAuth' => "getInConnections"}
+      .linked-sign-out.hidden
+        Log Out
 
 .container
   .sub-header
@@ -61,5 +53,5 @@
         %option{:value => "declined"} Not-Going
         %option{:value => "maybe"} Maybe
 
-
+  #InConnections
   .event-container
