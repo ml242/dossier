@@ -7,18 +7,19 @@ function getInConnections() {
 
       for (var i=0, numPeeps = res.values.length; i<numPeeps; i++) {
 
-        if (res.values[i].pictureUrls.values) {
+        var peep = res.values[i];
+        if (peep.pictureUrls && peep.pictureUrls.values) {
 
           $aTag = $('<a>').addClass('image-wrapper');
 
           $('<span>')
             .addClass('image-text')
             .addClass('invisible')
-            .html("<h1>" + res.values[i].firstName + " " + res.values[i].lastName + "</h1><br /><h2>" + res.values[i].headline + "</h2>")
+            .html("<h1>" + peep.firstName + " " + peep.lastName + "</h1><br /><h2>" + peep.headline + "</h2>")
             .appendTo($aTag);
 
           $('<img>')
-            .attr('src', res.values[i].pictureUrls.values[0])
+            .attr('src', peep.pictureUrls.values[0])
             .addClass('attendee')
             .appendTo($aTag);
 
