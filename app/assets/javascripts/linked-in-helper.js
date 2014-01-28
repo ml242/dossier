@@ -14,7 +14,7 @@
 //           $('<span>')
 //             .addClass('image-text')
 //             .addClass('invisible')
-//             .html("<h1>" + peep.firstName + " " + peep.lastName + "</h1><br /><h2>" + peeps.headline + "</h2>")
+//             .html("<h1>" + peep.firstName + " " + peep.lastName + "</h1><br /><h2>" + peep.headline + "</h2>")
 //             .appendTo($aTag);
 
 //           $('<img>')
@@ -48,8 +48,6 @@
 //   });
 
 //    window.IN.Event.on(IN, "auth", function(event) {
-//      console.log('its working');
-//      console.log(event);
 //     $('.linked-sign-in').addClass('hidden');
 //     $('.linked-sign-out').removeClass('hidden');
 //    });
@@ -58,6 +56,4 @@
 //     $('.linked-sign-in').removeClass('hidden');
 //     $('.linked-sign-out').addClass('hidden');
 //   });
-
-
 // });
