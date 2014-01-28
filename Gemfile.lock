@@ -295,7 +295,7 @@ DEPENDENCIES
   guard-rspec
   haml-rails
   jasmine
-  jquery-rails (~> 2.1.4)
+  jquery-rails
   koala
   meta_request
   newrelic_rpm
