@@ -162,6 +162,11 @@ GEM
       rack (~> 1.0)
     omniauth-facebook (1.4.0)
       omniauth-oauth2 (~> 1.0.2)
+    omniauth-linkedin (0.1.0)
+      omniauth-oauth (~> 1.0)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
     omniauth-oauth2 (1.0.3)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -296,6 +301,7 @@ DEPENDENCIES
   newrelic_rpm
   oauth
   omniauth-facebook (= 1.4.0)
+  omniauth-linkedin
   pg
   pry-rails
   puma
