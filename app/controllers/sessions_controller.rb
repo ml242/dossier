@@ -17,29 +17,15 @@ class SessionsController < ApplicationController
         session[:linkedin_login] = true
       end
     end
-    binding.pry
     redirect_to root_url
   end
 
   def linked_in_auth
-    binding.pry
-    user = User.from_omniauth(env['omniauth.auth'], nil)
-      binding.pry
-      session[:user_id] = user.id
-      if current_user[:linkedin_access_token]
-        session[:linkedin_login] = true
-      end
-    end
-    redirect_to root_url
+    render json: { success: true }
   end
 
   def destroy
     reset_session
-    # session[:user_id] = nil
-    # session[:fb_login] = nil
-    # session[:session_id] = nil
-    # session[:_csrf_token] = nil
-    # session[:session_id] = nil
     redirect_to root_url, :notice => "Signed out!"
   end
 
