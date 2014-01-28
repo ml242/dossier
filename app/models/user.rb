@@ -25,18 +25,30 @@ class User < ActiveRecord::Base
   end
 
   def get_events_from_fb
-    graph = Koala::Facebook::API.new(self.facebook_access_token)
-    @events = graph.get_connections("me", "events")
+    begin 
+      graph = Koala::Facebook::API.new(self.facebook_access_token)
+      @events = graph.get_connections("me", "events")
+    rescue
+      reset_session
+    end
   end
 
   def get_events_not_responded
-    graph = Koala::Facebook::API.new(self.facebook_access_token)
-    @events_invited = graph.get_connections("me", "events/not_replied")
+    begin
+      graph = Koala::Facebook::API.new(self.facebook_access_token)
+      @events_invited = graph.get_connections("me", "events/not_replied")
+    rescue
+      reset_session
+    end
   end
 
   def get_events_maybe
-    graph = Koala::Facebook::API.new(self.facebook_access_token)
-    @events_maybe = graph.get_connections("me", "events/maybe")
+    begin
+      graph = Koala::Facebook::API.new(self.facebook_access_token)
+      @events_maybe = graph.get_connections("me", "events/maybe")
+    rescue
+      reset_session
+    end
   end
 
 end
