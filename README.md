@@ -24,8 +24,8 @@ Use Koala so
  --><!-- Should make it so click instead of hover displays name
  -->
  Add permissions check to Koala
-
-
+var me3 = IN.API.Profile("me").result(displayProfiles);
+me3.storedSuccessResults.values[0]["id"]
 <!--
 Figure out why the events invited/not replied to is so slow -->
 
