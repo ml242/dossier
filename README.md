@@ -32,8 +32,16 @@ Figure out why the events invited/not replied to is so slow -->
 <!-- why doesnt the text toggle locally? Don't want to break the thing.
  -->
 
-Event title gets displayed at the top
-Game mode can start with a toggle check box.
+Needs to say what we're looking at
+  what event / all that shit
+  Event title gets displayed at the top
+  Game mode can start with a toggle check box.
+
+  linked connections whatever
+
+  Faker game.
+
+  Write some copy for the event container.
 
 Game mode
 10 right guesses | 3 wrongs to increment counter

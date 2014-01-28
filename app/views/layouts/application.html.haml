@@ -57,17 +57,19 @@
         $('body').on('click', '.linked-sign-out', function(e) {
           e.preventDefault();
           IN.User.logout();
-          $('event-container').fadeOut(1000, function(e) {
-            $('event-container').html('');
+          $('.event-container').fadeOut(1000, function(e) {
+            $('.event-container').html('');
           });
         });
 
          window.IN.Event.on(IN, "auth", function(event) {
+         $('.event-container').html('')
           $('.linked-sign-in').addClass('hidden');
           $('.linked-sign-out').removeClass('hidden');
          });
 
         window.IN.Event.on(IN, "logout", function(event) {
+          $('.event-container').html('')
           $('.linked-sign-in').removeClass('hidden');
           $('.linked-sign-out').addClass('hidden');
         });
