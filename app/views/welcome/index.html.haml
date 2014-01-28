@@ -10,13 +10,11 @@
         .fb-sign-in
           Log In
     .header-partition
-      - if session[:linkedin_login]
-        .linked-sign-out
-          %script{type="IN/logout"}
-          Log Out
-      - else
-        .linked-sign-in
-          %script{type:"IN/login", 'data-onAuth' => "onLinkedInAuth"}
+      .linked-sign-in
+        Log In
+        %script{type:"IN/login", 'data-onAuth' => "getInConnections"}
+      .linked-sign-out.hidden
+        Log Out
 
 .container
   .sub-header
@@ -55,5 +53,5 @@
         %option{:value => "declined"} Not-Going
         %option{:value => "maybe"} Maybe
 
-
+  #InConnections
   .event-container
