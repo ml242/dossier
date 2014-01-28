@@ -6,6 +6,7 @@ function getInConnections() {
       console.log(res);
 
       for (var i=0, numPeeps = res.values.length; i<numPeeps; i++) {
+
         if (res.values[i].pictureUrls.values) {
 
           $aTag = $('<a>').addClass('image-wrapper');
