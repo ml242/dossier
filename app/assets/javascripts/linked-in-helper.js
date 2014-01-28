@@ -1,4 +1,5 @@
 function getInConnections() {
+
   IN.API.Connections("me")
     .fields("firstName", "lastName", "picture-urls::(original)", "publicProfileUrl", "headline", "id")
     .result(function(res) {
@@ -43,8 +44,8 @@ $(function() {
   $('body').on('click', '.linked-sign-out', function(e) {
     e.preventDefault();
     IN.User.logout();
-    $('event-container').fadeOut(1000, function(e) {
-      $('event-container').html('');
+    $('.event-container').fadeOut(1000, function(e) {
+      $('.event-container').html('');
     });
   });
 
@@ -53,6 +54,7 @@ $(function() {
      console.log(event);
     $('.linked-sign-in').addClass('hidden');
     $('.linked-sign-out').removeClass('hidden');
+    $('.event-container').html('');
    });
 
   window.IN.Event.on(IN, "logout", function(event) {
