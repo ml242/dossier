@@ -15,7 +15,6 @@
       authorize: true
       credentials_cookie: true
       scope: r_fullprofile r_emailaddress r_network rw_groups
-      fields: id firstName lastName headline
 
 
     :javascript
@@ -35,4 +34,3 @@
         document.getElementById("profiles").innerHTML =
         "<p id=\"" + member.id + "\">Hello " +  member.firstName + " " + member.lastName + "</p>";
       }
->>>>>>> linked in no longer returning, see previous commit for code example
