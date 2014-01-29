@@ -54,21 +54,19 @@ getFacebookPicture = (fbResponse) ->
 
       if realNamePos == 1
         $subtext = $("<span>")
-        .addClass('image-subtext')
-        .data('real-name', fbResponse.name)
         .html("<h3 data-is-real=\"true\">#{names[0]}</h3> | <h3 data-is-real=\"false\">#{names[1]}</h3> | <h3 data-is-real=\"false\">#{names[2]}</h3>")
       else if realNamePos == 2
         $subtext = $('<span>')
-        .addClass('image-subtext')
-        .data('real-name', fbResponse.name)
         .html("<h3 data-is-real=\"false\">#{names[0]}</h3> | <h3 data-is-real=\"true\">#{names[1]}</h3> | <h3 data-is-real=\"false\">#{names[2]}</h3>")
       else if realNamePos == 3
         $subtext = $('<span>')
-        .addClass('image-subtext')
-        .data('real-name', fbResponse.name)
         .html("<h3 data-is-real=\"false\">#{names[0]}</h3> | <h3 data-is-real=\"false\">#{names[1]}</h3> | <h3 data-is-real=\"true\">#{names[2]}</h3>")
 
-      $aTag.append($subtext)
+      $subtext.addClass('image-subtext')
+      .data('real-name', fbResponse.name)
+      .data('tries', 0)
+      .appendTo($aTag)
+
       $('.event-container').append($aTag)
 
 
