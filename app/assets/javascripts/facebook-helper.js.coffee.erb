@@ -6,30 +6,28 @@ fbKey = 762893740391021
 fbKey = 683432475029309
 <% end %>
 
-getFacebookEvents = ->
-  FB.api "/me/events", (response) ->
-    if response and not response.error
-      i = 0
-      while i < response.data.length
-        $fbEvent = $("<div>")
-        $fbEvent.addClass "fb-event-item"
-        $fbEvent.text response.data[i].name
-        $fbEvent.attr "data-facebook-id", response.data[i].id
-        $("body").append $fbEvent
-        i++
+# getFacebookEvents = ->
+#   FB.api "/me/events", (response) ->
+#     if response and not response.error
+#       i = 0
+#       while i < response.data.length
+#         $fbEvent = $("<div>")
+#         $fbEvent.addClass "fb-event-item"
+#         $fbEvent.text response.data[i].name
+#         $fbEvent.attr "data-facebook-id", response.data[i].id
+#         $("body").append $fbEvent
+#         i++
 
-getFacebookEventInfo = (eventId) ->
-  FB.api "/" + eventId, (response) ->
-    if response and not response.error
-      console.log(response)
+# getFacebookEventInfo = (eventId) ->
+#   FB.api "/" + eventId, (response) ->
+#     if response and not response.error
+#       console.log(response)
 
 getFacebookPicture = (fbResponse) ->
   $.ajax
     url: "http://graph.facebook.com/" + fbResponse.id + "/picture?type=large&redirect=false&width=400&height=400"
     type: 'GET'
     success: (response) =>
-      # console.log(response)
-      # console.log("that's the response in the picture stuff ^^^")
 
       $aTag = $('<a>').addClass('image-wrapper')
 
@@ -52,7 +50,6 @@ getFacebookEventAttendees = (eventId) ->
     if peepResponse and not peepResponse.error
       for i in [0...peepResponse.data.length]
         getFacebookPicture(peepResponse.data[i])
-        console.log(peepResponse)
 
 
 setRSVP = (eventId, RSVPstatus) ->
@@ -104,13 +101,11 @@ jQuery ->
       $('.events-selector').on 'change', (e) ->
         $('.event-container').html('')
         eventId = $('.events-selector').find(":selected").val()
-        getFacebookEventInfo(eventId)
         getFacebookEventAttendees(eventId)
 
       $('.events-invited-selector').on 'change', (e) ->
         $('.event-container').html('')
         eventId = $('.events-invited-selector').find(":selected").val()
-        getFacebookEventInfo(eventId)
         getFacebookEventAttendees(eventId)
 
       $('.change-rsvp-selector').on 'change', (e) ->
