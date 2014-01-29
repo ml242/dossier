@@ -6,22 +6,22 @@ fbKey = 762893740391021
 fbKey = 683432475029309
 <% end %>
 
-getFacebookEvents = ->
-  FB.api "/me/events", (response) ->
-    if response and not response.error
-      i = 0
-      while i < response.data.length
-        $fbEvent = $("<div>")
-        $fbEvent.addClass "fb-event-item"
-        $fbEvent.text response.data[i].name
-        $fbEvent.attr "data-facebook-id", response.data[i].id
-        $("body").append $fbEvent
-        i++
+# getFacebookEvents = ->
+#   FB.api "/me/events", (response) ->
+#     if response and not response.error
+#       i = 0
+#       while i < response.data.length
+#         $fbEvent = $("<div>")
+#         $fbEvent.addClass "fb-event-item"
+#         $fbEvent.text response.data[i].name
+#         $fbEvent.attr "data-facebook-id", response.data[i].id
+#         $("body").append $fbEvent
+#         i++
 
-getFacebookEventInfo = (eventId) ->
-  FB.api "/" + eventId, (response) ->
-    if response and not response.error
-      console.log(response)
+# getFacebookEventInfo = (eventId) ->
+#   FB.api "/" + eventId, (response) ->
+#     if response and not response.error
+#       console.log(response)
 
 getFacebookPicture = (fbResponse) ->
   $.ajax
@@ -32,21 +32,50 @@ getFacebookPicture = (fbResponse) ->
       $aTag = $('<a>').addClass('image-wrapper')
 
       $('<span>')
-        .addClass('image-text')
-        .addClass('invisible')
-        .html("<h1>#{fbResponse.name}</h1>")
-        .appendTo($aTag)
+      .addClass('image-text')
+      .addClass('invisible')
+      .html("<h1>#{fbResponse.name}</h1>")
+      .appendTo($aTag)
 
       $('<img>')
-        .attr('src', response.data.url)
-        .addClass('attendee')
-        .appendTo($aTag)
+      .attr('src', response.data.url)
+      .addClass('attendee')
+      .appendTo($aTag)
 
+      names = []
+      names.push(randName())
+      names.push(randName())
+      names.push(randName())
+
+      realNamePos = randPos()
+      nameSpacer = fbResponse.name.indexOf(' ')
+      firstName = fbResponse.name.slice(0, nameSpacer)
+      names[realNamePos-1] = firstName
+
+      if realNamePos == 1
+        $subtext = $("<span data-id=\"#{fbResponse.id}\"")
+        .addClass('image-subtext')
+        .data('real-name', fbResponse.name)
+        .html("<h3 data-is-real=\"true\">#{names[0]}</h3> | <h3 data-is-real=\"false\">#{names[1]}</h3> | <h3 data-is-real=\"false\">#{names[2]}</h3>")
+      else if realNamePos == 2
+        $subtext = $('<span>')
+        .addClass('image-subtext')
+        .data('real-name', fbResponse.name)
+        .html("<h3 data-is-real=\"false\">#{names[0]}</h3> | <h3 data-is-real=\"true\">#{names[1]}</h3> | <h3 data-is-real=\"false\">#{names[2]}</h3>")
+      else if realNamePos == 3
+        $subtext = $('<span>')
+        .addClass('image-subtext')
+        .data('real-name', fbResponse.name)
+        .html("<h3 data-is-real=\"false\">#{names[0]}</h3> | <h3 data-is-real=\"false\">#{names[1]}</h3> | <h3 data-is-real=\"true\">#{names[2]}</h3>")
+
+      $aTag.append($subtext)
       $('.event-container').append($aTag)
+
 
 
 getFacebookEventAttendees = (eventId) ->
   FB.api "/" + eventId + '/attending', (peepResponse) ->
+    console.log(peepResponse)
     if peepResponse and not peepResponse.error
       for i in [0...peepResponse.data.length]
         getFacebookPicture(peepResponse.data[i])
@@ -100,13 +129,11 @@ jQuery ->
       $('.events-selector').on 'change', (e) ->
         $('.event-container').html('')
         eventId = $('.events-selector').find(":selected").val()
-        getFacebookEventInfo(eventId)
         getFacebookEventAttendees(eventId)
 
       $('.events-invited-selector').on 'change', (e) ->
         $('.event-container').html('')
         eventId = $('.events-invited-selector').find(":selected").val()
-        getFacebookEventInfo(eventId)
         getFacebookEventAttendees(eventId)
 
       $('.change-rsvp-selector').on 'change', (e) ->
