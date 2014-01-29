@@ -53,7 +53,7 @@ getFacebookPicture = (fbResponse) ->
       names[realNamePos-1] = firstName
 
       if realNamePos == 1
-        $subtext = $("<span data-id=\"#{fbResponse.id}\"")
+        $subtext = $("<span>")
         .addClass('image-subtext')
         .data('real-name', fbResponse.name)
         .html("<h3 data-is-real=\"true\">#{names[0]}</h3> | <h3 data-is-real=\"false\">#{names[1]}</h3> | <h3 data-is-real=\"false\">#{names[2]}</h3>")

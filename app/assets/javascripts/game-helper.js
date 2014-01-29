@@ -16,7 +16,7 @@ function isActualName(el) {
       name = $parent.data('real-name'),
       numTries = $parent.data('tries');
 
-  $parent.data('tries', 1);
+  $parent.data('tries', numTries + 1);
 
   if (isReal) {
     gotCorrect();
