@@ -29,7 +29,9 @@ function isActualName(el) {
     gotWrong();
     $el.addClass('incorrect-answer');
 
-    if (numTries == 1) {
+    if (numTries == 2) {
+      $parent.html('');
+      $parent.text(name);
       $parent.addClass('loser');
     }
   }
