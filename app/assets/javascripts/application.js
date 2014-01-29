@@ -19,4 +19,5 @@
 //= require facebook-helper
 //
 //= require image-text-helper
+//= require game-helper
 //

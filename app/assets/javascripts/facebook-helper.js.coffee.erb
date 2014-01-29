@@ -32,17 +32,39 @@ getFacebookPicture = (fbResponse) ->
       $aTag = $('<a>').addClass('image-wrapper')
 
       $('<span>')
-        .addClass('image-text')
-        .addClass('invisible')
-        .html("<h1>#{fbResponse.name}</h1>")
-        .appendTo($aTag)
+      .addClass('image-text')
+      .addClass('invisible')
+      .html("<h1>#{fbResponse.name}</h1>")
+      .appendTo($aTag)
 
       $('<img>')
-        .attr('src', response.data.url)
-        .addClass('attendee')
-        .appendTo($aTag)
+      .attr('src', response.data.url)
+      .addClass('attendee')
+      .appendTo($aTag)
+
+      names = []
+      names.push(randName())
+      names.push(randName())
+      names.push(randName())
+
+      realNamePos = randPos()
+      names[realNamePos] = fbResponse.name
+
+      if realNamePos == 0
+        $("<span data-id=\"#{fbResponse.id}\"")
+        .addClass('image-subtext')
+        .html("<h3 data-is-real=\"true\">#{names[0]}</h3><h3 data-is-real=\"false\">#{names[1]}</h3><h3 data-is-real=\"false\">#{names[2]}</h3>")
+      else if realNamePos == 1
+        $('<span>')
+        .addClass('image-subtext')
+        .html("<h3 data-is-real=\"false\">#{names[0]}</h3><h3 data-is-real=\"true\">#{names[1]}</h3><h3 data-is-real=\"false\">#{names[2]}</h3>")
+      else if realNamePos == 2
+        $('<span>')
+        .addClass('image-subtext')
+        .html("<h3 data-is-real=\"false\">#{names[0]}</h3><h3 data-is-real=\"false\">#{names[1]}</h3><h3 data-is-real=\"true\">#{names[2]}</h3>")
 
       $('.event-container').append($aTag)
+
 
 
 getFacebookEventAttendees = (eventId) ->
