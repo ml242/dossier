@@ -11,7 +11,7 @@ function gotWrong() {
 
 function isActualName(el) {
   var $el = $(el),
-      name = $el.text(),
+      name = $parent.data('real-name'),
       isReal = $el.data('is-real'),
       $parent = $el.parent(),
       numTries = $parent.data('tries');
