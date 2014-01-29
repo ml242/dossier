@@ -31,13 +31,12 @@ getFacebookPicture = (fbResponse) ->
       # console.log(response)
       # console.log("that's the response in the picture stuff ^^^")
 
-      $aTag = $('<a>')
-      $aTag.addClass('image-wrapper')
+      $aTag = $('<a>').addClass('image-wrapper')
 
       $('<span>')
         .addClass('image-text')
         .addClass('invisible')
-        .html("<h1>#{fbResponse.name}</h1><br /><h2>I like your app.</h2>")
+        .html("<h1>#{fbResponse.name}</h1>")
         .appendTo($aTag)
 
       $('<img>')
