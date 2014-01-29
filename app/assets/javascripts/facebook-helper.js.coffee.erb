@@ -28,8 +28,6 @@ getFacebookPicture = (fbResponse) ->
     url: "http://graph.facebook.com/" + fbResponse.id + "/picture?type=large&redirect=false&width=400&height=400"
     type: 'GET'
     success: (response) =>
-      # console.log(response)
-      # console.log("that's the response in the picture stuff ^^^")
 
       $aTag = $('<a>').addClass('image-wrapper')
 
@@ -52,8 +50,6 @@ getFacebookEventAttendees = (eventId) ->
     if peepResponse and not peepResponse.error
       for i in [0...peepResponse.data.length]
         getFacebookPicture(peepResponse.data[i])
-        console.log(peepResponse)
-
 
 setRSVP = (eventId, RSVPstatus) ->
   FB.api "/#{eventId}/#{RSVPstatus}", 'post', (response) ->
