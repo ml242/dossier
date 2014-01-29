@@ -6,6 +6,8 @@ fbKey = 762893740391021
 fbKey = 683432475029309
 <% end %>
 
+redirectUri = "http://dossier-app.herokuapp.com/auth/facebook/callback"
+
 # getFacebookEvents = ->
 #   FB.api "/me/events", (response) ->
 #     if response and not response.error
@@ -113,9 +115,12 @@ jQuery ->
 
       $('body').on 'click', '.fb-sign-in', (e) ->
         e.preventDefault()
-        FB.login ((response) ->
-          <%# requesting scope http://stackoverflow.com/a/12663627/2474735 %>
-          window.location = '/auth/facebook/callback' + '?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse), scope: "email, user_birthday, user_likes, user_location, user_events, rsvp_event"
+        if navigator.userAgent.match('CriOS')
+          window.location = "https://www.facebook.com/dialog/oauth?client_id=#{fbKey}&redirect_uri=#{redirectUri}"
+        else
+          FB.login ((response) ->
+            <%# requesting scope http://stackoverflow.com/a/12663627/2474735 %>
+            window.location = '/auth/facebook/callback' + '?' + $.param({ signed_request: response.authResponse.signedRequest }) if response.authResponse), scope: "email, user_birthday, user_likes, user_location, user_events, rsvp_event"
 
       $('body').on 'click', '.fb-sign-out', (e) ->
         FB.getLoginStatus (response) ->
