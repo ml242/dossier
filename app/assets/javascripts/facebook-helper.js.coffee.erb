@@ -47,6 +47,7 @@ getFacebookPicture = (fbResponse) ->
 
 getFacebookEventAttendees = (eventId) ->
   FB.api "/" + eventId + '/attending', (peepResponse) ->
+    console.log(peepResponse)
     if peepResponse and not peepResponse.error
       for i in [0...peepResponse.data.length]
         getFacebookPicture(peepResponse.data[i])
