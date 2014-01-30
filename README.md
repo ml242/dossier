@@ -1,45 +1,41 @@
-#TODO
+#Dossier
+###Put a name on a face
 
-CHECK Data Models
+###User Model
+  * fb_id
+  * meetup_id
+  * linkedin_id
+  * email
+  * first_name
+  * last_name
+  * picture_url
+  * facebook_access_token
+  * facebook_expires_at
 
-CHECK User
-  fb_id
-  meetup_id
-  linkedin_id
-  email
-  first_name
-  last_name
-  picture_url
-  facebook_access_token
-  facebook_expires_at
+### Koala Gem
+  * ~~if current_user gets me/events before the page loads CHECK~~
+  * ~~Make toggle function to click off the event~~ 
+  * Interpolate the about me to add text!!!
+  * Permissions check
+### Javascript
 
-Use Koala so
-<!--   if current_user gets me/events before the page loads CHECK
- -->
- <!-- Make toggle function to click off the event -->
-  Interpolate the about me to add text!!!
+  * ~~user can RSVP to events to add them to list~
+  * ~~Should make it so click instead of hover displays name~~
 
-<!-- Should make it so user can RSVP to events to add them to list
-  half way there changed scope
- --><!-- Should make it so click instead of hover displays name
- -->
- Add permissions check to Koala
+### Linkedin JS API
+```js
 var me3 = IN.API.Profile("me").result(displayProfiles);
 me3.storedSuccessResults.values[0]["id"]
-<!--
-Figure out why the events invited/not replied to is so slow -->
 
-<!-- why doesnt the text toggle locally? Don't want to break the thing.
- -->
+  * ~~Figure out why the events invited/not replied to is so slow~~
+  * ~~why doesnt the text toggle locally? Don't want to break the thing.~~
 
 Needs to say what we're looking at
   what event / all that shit
   Event title gets displayed at the top
   Game mode can start with a toggle check box.
 
-  linked connections whatever
-
-  Faker game.
+  ~~Faker game.~~
 
   Write some copy for the event container.
 
@@ -61,16 +57,13 @@ bond tropes?
 
 
 add copy to intro page
-
 add to calendar
 
 text description of the events
-
+ 
 map it with google maps
-
+ 
 show linkedin peeps when logged in to fb
-
-
 
 
 As "Motherfucking James Bond 007"
