@@ -31,7 +31,7 @@ function getInConnections() {
 
           $aTag = $('<a>').addClass('image-wrapper');
 
-          $('<span>')
+          $('<div>')
             .addClass('image-text')
             .addClass('invisible')
             .html("<h1>" + peep.firstName + " " + peep.lastName + "</h1><br /><h2>" + peep.headline + "</h2>")
@@ -47,3 +47,12 @@ function getInConnections() {
       }
     });
 }
+
+$(function() {
+
+  $('body').on('click', 'span', function(e) {
+    // stop propagation because linkedin login button is awful
+    e.stopPropagation();
+  });
+
+});

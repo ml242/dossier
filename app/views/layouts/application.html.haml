@@ -12,47 +12,12 @@
 
 
     :javascript
-      function getInConnections() {
-        IN.API.Connections("me")
-          .fields("firstName", "lastName", "picture-urls::(original)", "publicProfileUrl", "headline", "id")
-          .result(function(res) {
-
-            console.log(res);
-
-            for (var i=0, numPeeps = res.values.length; i<numPeeps; i++) {
-
-              var peep = res.values[i];
-              if (peep.pictureUrls && peep.pictureUrls.values) {
-
-                $aTag = $('<a>').addClass('image-wrapper');
-
-                $('<span>')
-                  .addClass('image-text')
-                  .addClass('invisible')
-                  .html("<h1>" + peep.firstName + " " + peep.lastName + "</h1><br /><h2>" + peep.headline + "</h2>")
-                  .appendTo($aTag);
-
-                $('<img>')
-                  .attr('src', peep.pictureUrls.values[0])
-                  .addClass('attendee')
-                  .appendTo($aTag);
-
-                $('.event-container').append($aTag);
-              }
-            }
-          });
-      }
 
       $(function() {
 
         $('body').on('change', '.in-select', function(e) {
           e.preventDefault();
           getInConnections();
-        });
-
-        $('body').on('click', 'span', function(e) {
-          console.log(this, e);
-          e.stopPropagation();
         });
 
         $('body').on('click', '.linked-sign-in', function(e) {
@@ -93,22 +58,3 @@
       authorize: true
       credentials_cookie: true
       scope: r_fullprofile r_emailaddress r_network rw_groups
-
-
-    :javascript
-      // 2. Runs when the JavaScript framework is loaded
-        function onLinkedInLoad() {
-          IN.Event.on(IN, "auth", onLinkedInAuth);
-      }
-
-      // 2. Runs when the viewer has authenticated
-      function onLinkedInAuth() {
-        IN.API.Profile("me").result(displayProfiles);
-      }
-
-      // 2. Runs when the Profile() API call returns successfully
-      function displayProfiles(profiles) {
-        member = profiles.values[0];
-        document.getElementById("profiles").innerHTML =
-        "<p id=\"" + member.id + "\">Hello " +  member.firstName + " " + member.lastName + "</p>";
-      }
