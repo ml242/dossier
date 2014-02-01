@@ -75,27 +75,43 @@ a
 .IN-widget
   opacity: 0
 
+.fb-logo
+  background: url('facebook-logo-small2.png') no-repeat
+  height: 50px
+  width: 50px
+  display: inline-block
+
 .fb-sign-in, .fb-sign-out
+  @extend .fb-logo
   cursor: pointer
   font-family: TravelingTypewriter, serif
   text-shadow: -1px 0 rgba(32, 56, 145, 0.29), 0 1px rgba(32, 56, 145, 0.29), 1px 0 rgba(32, 56, 145, 0.29), 0 -1px rgba(32, 56, 145, 0.29)
   height: 60px
+  width: 150px
   padding: 10px 0 0 0
   border-top: 10px solid #4e68c7
-  background: url('facebook-logo-small2.png') no-repeat
   @media screen and (max-width: 700px)
     height: 50px
+    width: 210px
     margin: 25px 0 0 0
 
+.in-logo
+  background: url('linkedin-logo-small.png') no-repeat
+  height: 50px
+  width: 50px
+  display: inline-block
+
 .linked-sign-in, .linked-sign-out
+  @extend .in-logo
   cursor: pointer
   font-family: TravelingTypewriter, serif
   text-shadow: -1px 0 rgba(32, 56, 145, 0.29), 0 1px rgba(32, 56, 145, 0.29), 1px 0 rgba(32, 56, 145, 0.29), 0 -1px rgba(32, 56, 145, 0.29)
   height: 60px
+  width: 150px
   padding: 10px 0 0 0
   border-top: 10px solid #4e68c7
-  background: url('linkedin-logo-small.png') no-repeat
   @media screen and (max-width: 700px)
+    width: 210px
     height: 50px
 
 .container
@@ -106,13 +122,15 @@ a
 
 .sub-header
   margin: 80px auto 20px auto
+  @media screen and (max-width: 700px)
+    margin-top: 255px
 
 .event-container
   margin: 0 auto
   max-width: 1000px
   position: inherit
 
-.events-selector, .events-invited-selector
+.supreme-select
   width: 420px
   height: 50px
   background: #4e68c7
@@ -129,7 +147,10 @@ a
     width: -webkit-calc(100% - 6px)
     width: calc(100% - 6px)
     font-size: 20px
-    margin: -10px 0 0 0
+    margin: -10px 0 3px 0
+
+.events-selector, .events-invited-selector
+  @extend .supreme-select
 
 .events-selector
   @media screen and (max-width: 700px)
@@ -140,8 +161,9 @@ a
 .events-invited-selector
   position: relative
   left: -3px
+  margin-bottom: 20px
   @media screen and (max-width: 700px)
-    margin: 0
+    margin: 0 0 3px 0
 
 .change-rsvp-selector, .set-rsvp-selector
   width: 105px
@@ -162,6 +184,23 @@ a
 .change-rsvp-selector
   position: relative
   left: 3px
+  @media screen and (max-width: 700px)
+    margin-bottom: 15px
+
+.in-select
+  @extend .supreme-select
+  @media screen and (max-width: 700px)
+    margin-top: 30px
+
+.in-select-container
+  position: relative
+  top: -15px
+
+.select-logo
+  position: relative
+  top: 25px
+  @media screen and (max-width: 700px)
+    display: none
 
 img.attendee
   height: 300px
@@ -230,3 +269,20 @@ img
 
 .loser
   background: red
+
+.intro-text
+  font-family: Helvetica, sans-serif
+  margin: 0 auto
+  margin-top 60px
+  padding: 30px
+  max-width: 1000px
+  border: 1px black solid
+  border-radius: 25px
+  background-color: rgba(255, 255, 255, .7)
+  line-spacing: 2.0em
+  h1
+    font-size: 2em
+  h2
+    font-size: 1.5em
+  p
+    font-size: 1.25em

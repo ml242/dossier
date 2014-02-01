@@ -21,4 +21,5 @@
 //= require image-text-helper
 //= require names-helper
 //= require game-helper
+//= require linkedin-helper
 //

@@ -45,6 +45,16 @@
 
       $(function() {
 
+        $('body').on('change', '.in-select', function(e) {
+          e.preventDefault();
+          getInConnections();
+        });
+
+        $('body').on('click', 'span', function(e) {
+          console.log(this, e);
+          e.stopPropagation();
+        });
+
         $('body').on('click', '.linked-sign-in', function(e) {
           e.preventDefault();
           $(this).find("span").last().click();

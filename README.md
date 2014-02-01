@@ -49,6 +49,30 @@ Strikethrough on wrong name of each
 Names are pulled from the list of everyone going
 
 
+
+STYLING/Functionaling
+
+Make a toggle for the game mode
+
+Only show six at a time
+make the game do something each time you win / lose a round.
+
+bond tropes?
+
+
+add copy to intro page
+
+add to calendar
+
+text description of the events
+
+map it with google maps
+
+show linkedin peeps when logged in to fb
+
+
+
+
 As "Motherfucking James Bond 007"
   I'd like to be able to create an account for the Dossier App
   So I can use the app

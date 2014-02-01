@@ -12,7 +12,7 @@
     .header-partition
       .linked-sign-in
         Log In
-        %script{type:"IN/login", 'data-onAuth' => "getInConnections"}
+        %script{type:"IN/login", 'data-onAuth' => "showInSelect"}
       .linked-sign-out.hidden
         Log Out
 
@@ -20,12 +20,12 @@
   .sub-header
     - if @events
 
+      .fb-logo.select-logo
       %select.events-selector
         %option Events you're going to!
         - @events.each do |event|
           %option{:value => event["id"]}
             = "#{event['start_time'].to_datetime.strftime("%B %d, %Y")}  |  #{event['name']}"
-
       %select.change-rsvp-selector
         %option{:value => nil} RSVP
         %option{:value => "attending"} Going
@@ -33,10 +33,10 @@
         %option{:value => "maybe"} Maybe
 
       %br
-      %br
 
     - if @events_invited || @events_maybe
 
+      .fb-logo.select-logo
       %select.events-invited-selector
         %option Events you're not attending
         - @events_invited.each do |event|
@@ -53,5 +53,14 @@
         %option{:value => "declined"} Not-Going
         %option{:value => "maybe"} Maybe
 
-  #InConnections
   .event-container
+    - if current_user
+      .intro-text
+        %h2 Select what you want to be briefed on
+        %br
+        %p Make a selection above to get yadada
+    - else
+      .intro-text
+        %h2 Dossier is an App to help you prepare for events.
+        %br
+        %p Feel free to login through Facebook and look at the events you've been invited to, or use the LinkedIn login to browse your contacts. Just seeing the faces of other invitees may help inform your decision about whether you want to go to a particular event, but after that you can use the tiles to help memorize the other guests names.
