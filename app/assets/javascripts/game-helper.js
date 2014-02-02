@@ -45,4 +45,8 @@ $(function() {
     isActualName(this);
   });
 
+  $('body').on('click', '.image-text', function(e) {
+    $(this).toggleClass('invisible');
+  });
+
 });
