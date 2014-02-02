@@ -17,6 +17,7 @@
   * ~~Make toggle function to click off the event~~ 
   * Interpolate the about me to add text!!!
   * Permissions check
+
 ### Javascript
 
   * ~~user can RSVP to events to add them to list~
@@ -26,7 +27,7 @@
 ```js
 var me3 = IN.API.Profile("me").result(displayProfiles);
 me3.storedSuccessResults.values[0]["id"]
-
+```
   * ~~Figure out why the events invited/not replied to is so slow~~
   * ~~why doesnt the text toggle locally? Don't want to break the thing.~~
 
