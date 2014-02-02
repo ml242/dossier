@@ -4,11 +4,10 @@
 ##General Todo
 
 ###Needs to say what we're looking at
-  what event / all that shit
-  Event title gets displayed at the top
-  Game mode can start with a toggle check box.
-  Write some copy for the event container.
-
+  * what event / all that shit
+  * Event title gets displayed at the top
+  * Game mode can start with a toggle check box.
+  * Write some copy for the event container.
 
 ###Game mode
   * ~~Faker game.~~
