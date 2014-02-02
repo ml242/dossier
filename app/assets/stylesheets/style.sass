@@ -10,6 +10,10 @@
 body
   background-image: url('background-manilla.png')
   background-size: cover
+
+em
+  font-weight: bold
+  font-style: italic
 a
   color: #fff
   text-decoration: none
@@ -44,8 +48,8 @@ a
     font-size: 42px
     text-shadow: -1px 0 rgba(32, 56, 145, 0.29), 0 1px rgba(32, 56, 145, 0.29), 1px 0 rgba(32, 56, 145, 0.29), 0 -1px rgba(32, 56, 145, 0.29)
   @media screen and (max-width: 700px)
-    height: 200px
-    padding: 10px 0 25px
+    height: 185px
+    padding: 10px 0
 
 
 .header-inner
@@ -66,11 +70,15 @@ a
     float: none
     display: block
     width: 225px
-    margin: 0 50px
+    margin: 0 auto
 
 .logo
   @extend .header-partition
   width: 250px
+  @media screen and (max-width: 700px)
+    position: relative
+    left: -15px
+    margin: 0 auto
 
 .IN-widget
   opacity: 0
@@ -93,7 +101,7 @@ a
   @media screen and (max-width: 700px)
     height: 50px
     width: 210px
-    margin: 25px 0 0 0
+    margin: 20px 0 0 0
 
 .in-logo
   background: url('linkedin-logo-small.png') no-repeat
@@ -113,6 +121,7 @@ a
   @media screen and (max-width: 700px)
     width: 210px
     height: 50px
+    margin-top: -10px
 
 .container
   text-align: center
@@ -123,7 +132,7 @@ a
 .sub-header
   margin: 80px auto 20px auto
   @media screen and (max-width: 700px)
-    margin-top: 255px
+    margin-top: 225px
 
 .event-container
   margin: 0 auto
@@ -271,18 +280,26 @@ img
   background: red
 
 .intro-text
+  color: #333
   font-family: Helvetica, sans-serif
-  margin: 0 auto
-  margin-top 60px
-  padding: 30px
-  max-width: 1000px
-  border: 1px black solid
-  border-radius: 25px
-  background-color: rgba(255, 255, 255, .7)
+  margin: 60 auto 0 auto
+  padding: 20px
+  width: 500px
+  max-width: calc(100% - 50px)
+  border: 1px #333 solid
+  border-radius: 3px
+  background-color: rgba(255, 255, 255, .2)
   line-spacing: 2.0em
+  hr
+    opacity: 1
+    height: 1px
+    width: 250px
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(rgba(255, 255, 255, .2)), to(rgba(255, 255, 255, .2)), color-stop(50%, black))
+    margin: 0 auto
+    border: 0
   h1
     font-size: 2em
   h2
     font-size: 1.5em
   p
-    font-size: 1.25em
+    font-size: 1em
