@@ -92,6 +92,15 @@ setRSVP = (eventId, RSVPstatus) ->
       $('.container').fadeOut(1000)
       window.location = "/"
 
+getFbEventInfo = (eventId) ->
+      FB.api "/" + eventId, (response) ->
+      response and not response.error
+      console.log(response)
+
+        # debugger;
+        # $infoDiv = $('<div>').addClass('intro-text')
+        # $('.event-container').append($infoDiv)
+
 jQuery ->
 
   $('body').prepend('<div id="fb-root"></div>')
@@ -133,6 +142,7 @@ jQuery ->
         $('.event-container').html('')
         eventId = $('.events-selector').find(":selected").val()
         getFacebookEventAttendees(eventId)
+        getFbEventInfo(eventId)
 
       $('.events-invited-selector').on 'change', (e) ->
         $('.event-container').html('')
