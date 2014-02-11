@@ -93,11 +93,12 @@ setRSVP = (eventId, RSVPstatus) ->
       window.location = "/"
 
 getFbEventInfo = (eventId) ->
-      FB.api "/" + eventId, (response) ->
-      response and not response.error
+  FB.api "/" + eventId, (response) ->
+    if response and not response.error
       console.log(response)
-        # $infoDiv = $('<div>').addClass('intro-text')
-        # $('.event-container').append($infoDiv)
+      $eventDetails = response.description
+      $infoDiv = $('<div>').addClass('intro-text').html($eventDetails)
+      $('.event-container').append($infoDiv)
 
 jQuery ->
 
