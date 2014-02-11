@@ -24,7 +24,7 @@
   * bond tropes?
   * add copy to intro page
   * add to calendar
-  * text description of the events
+  * ~~text description of the events.~~
   * map it with google maps
   * show linkedin peeps when logged in to fb
 
@@ -41,7 +41,7 @@
 
 ### Koala Gem
   * ~~if current_user gets me/events before the page loads CHECK~~
-  * ~~Make toggle function to click off the event~~ 
+  * ~~Make toggle function to click off the event~~
   * Interpolate the about me to add text!!!
   * Permissions check
 
