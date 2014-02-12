@@ -3,6 +3,8 @@
     %title Dossier
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
+    %script{src: "//maps.google.com/maps/api/js?v=3.13&sensor=false&libraries=geometry", type: "text/javascript"}
+    %script{src: "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js", type: "text/javascript"}
     %meta{content:"width=device-width", name:"viewport"}
     %meta{name:"apple-mobile-web-app-capable", content:"yes"}
     = csrf_meta_tags
