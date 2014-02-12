@@ -19,6 +19,8 @@ gem 'koala'
 # gem 'foursquare2'
 gem 'omniauth-linkedin'
 
+gem 'gmaps4rails'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
