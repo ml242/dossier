@@ -99,6 +99,9 @@ getFbEventInfo = (eventId) ->
       $eventDetails = response.description
       $infoDiv = $('<div>').addClass('intro-text').html($eventDetails)
       $('.event-container').append($infoDiv)
+      $addy = response.venue.street+" "+response.venue.state+" "+response.venue.zip
+      $infoDiv = $('<div>').addClass('intro-text').html($addy)
+      $('.event-container').append($infoDiv)
 
 jQuery ->
 
