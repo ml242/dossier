@@ -41,7 +41,6 @@ $(function() {
 
   $('body').on('click', '.image-subtext h3', function(e) {
     e.preventDefault();
-
     isActualName(this);
   });
 
