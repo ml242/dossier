@@ -35,8 +35,8 @@
         $('body').on('click', '.linked-sign-out', function(e) {
           e.preventDefault();
           IN.User.logout();
-          $('.event-container').fadeOut(1000, function(e) {
-            $('.event-container').html('');
+          $('.in-select-container').fadeOut(1000, function(e) {
+            $('.in-select-container').html('');
           });
         });
 
