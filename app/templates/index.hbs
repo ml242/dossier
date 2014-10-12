@@ -1,0 +1,7 @@
+{{partial 'index/event-selector'}}
+{{#if selectedEvent}}
+  {{partial 'index/event-info'}}
+  {{partial 'index/image-list'}}
+{{else}}
+  {{partial 'index/intro-text'}}
+{{/if}}
