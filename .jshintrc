@@ -4,7 +4,6 @@
     "window": true,
     "-Promise": true,
     "moment": true,
-    "$": true,
     "FastClick": true,
     "FB": true
   },

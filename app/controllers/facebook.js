@@ -30,7 +30,7 @@ export default Ember.Controller.extend({
 
   onInitScripts: function() {
     var self = this;
-    $('body').prepend('<div id="fb-root"></div>');
+    Ember.$('body').prepend('<div id="fb-root"></div>');
     (function(d, s, id) {
       var fjs, js; js = void 0; fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId="+self.get('fbKeyDev');
       return fjs.parentNode.insertBefore(js, fjs);
     })(document, "script", "facebook-jssdk");
-    return $.ajax({
+    return Ember.$.ajax({
       url: window.location.protocol + "//connect.facebook.net/en_US/all.js",
       dataType: 'script',
       cache: true
@@ -47,7 +47,7 @@ export default Ember.Controller.extend({
 
   onAfterInit: function() {
     var self = this;
-    $('body').on('click', '.fb-sign-in', function(e) {
+    Ember.$('body').on('click', '.fb-sign-in', function(e) {
       e.preventDefault();
       if (navigator.userAgent.match('CriOS')) {
         var url = "https://www.facebook.com/dialog/oauth?client_id=" +
@@ -62,12 +62,12 @@ export default Ember.Controller.extend({
         });
       }
     });
-    return $('body').on('click', '.fb-sign-out', function() {
+    return Ember.$('body').on('click', '.fb-sign-out', function() {
       FB.getLoginStatus(function(response) {
         if (response.authResponse) {
           FB.logout();
-          $(".fb-select-container").fadeOut(500, function() {
-            $(".fb-select-container").html("");
+          Ember.$(".fb-select-container").fadeOut(500, function() {
+            Ember.$(".fb-select-container").html("");
           });
         }
       });
@@ -98,7 +98,7 @@ export default Ember.Controller.extend({
       '/picture?type=large&redirect=false&width=400&height=400';
     return new Ember.RSVP.Promise(function(resolve, reject) {
       try {
-        $.get(url, function(response) {
+        Ember.$.get(url, function(response) {
           resolve(response);
         });
       } catch(err) {
@@ -124,7 +124,7 @@ export default Ember.Controller.extend({
       try {
         FB.api('/'+eventId+'/'+RSVPstatus, 'post', function(response) {
           if (response) {
-            $('.container').fadeOut(1000);
+            Ember.$('.container').fadeOut(1000);
             window.location = "/";
           }
         });
