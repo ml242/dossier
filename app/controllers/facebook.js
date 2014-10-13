@@ -51,7 +51,7 @@ export default Ember.Controller.extend({
       e.preventDefault();
       if (navigator.userAgent.match('CriOS')) {
         var url = "https://www.facebook.com/dialog/oauth?client_id=" +
-          self.get('fbKey') + "&redirect_uri=" + redirectUri;
+          self.get('fbKey') + "&redirect_uri=" + self.get('redirectUri');
         return window.location = url;
       } else {
         return FB.login((function(response) {
@@ -62,11 +62,11 @@ export default Ember.Controller.extend({
         });
       }
     });
-    return $('body').on('click', '.fb-sign-out', function(e) {
+    return $('body').on('click', '.fb-sign-out', function() {
       FB.getLoginStatus(function(response) {
         if (response.authResponse) {
           FB.logout();
-          $(".fb-select-container").fadeOut(500, function(e) {
+          $(".fb-select-container").fadeOut(500, function() {
             $(".fb-select-container").html("");
           });
         }
@@ -108,7 +108,6 @@ export default Ember.Controller.extend({
   },
 
   getEventAttendees: function(eventId) {
-    var self = this;
     return new Ember.RSVP.Promise(function(resolve, reject) {
       try {
         FB.api('/'+eventId+'/attending', function(response) {
@@ -137,6 +136,7 @@ export default Ember.Controller.extend({
 
   getEventInfo: function(eventId) {
     FB.api('/'+eventId, function(response) {
+      console.log(response);
       //response.venue.street+" "+response.venue.state+
       //      " "+response.venue.zip));
     });
@@ -166,7 +166,7 @@ export default Ember.Controller.extend({
   getEventsDeclined: function() {
     var self = this;
     FB.api('/me/events/declined', function(response) {
-      sef.get('container').lookup('controller:index')
+      self.get('container').lookup('controller:index')
         .set('eventsDeclined',response.data);
     });
   }

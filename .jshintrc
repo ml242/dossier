@@ -5,7 +5,8 @@
     "-Promise": true,
     "moment": true,
     "$": true,
-    "FastClick": true
+    "FastClick": true,
+    "FB": true
   },
   "browser" : true,
   "boss" : true,
