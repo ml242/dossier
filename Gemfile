@@ -10,10 +10,10 @@ gem 'pg'
 gem 'newrelic_rpm'
 gem 'puma'
 
-gem "faraday", "~> 0.8.9"
+gem "faraday"
 
 gem 'oauth'
-gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-facebook'
 gem 'koala'
 # gem 'omniauth-foursquare'
 # gem 'foursquare2'
