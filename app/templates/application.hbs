@@ -1,0 +1,27 @@
+<div class="header">
+  <div class="header-inner">
+    {{#link-to 'index' class="logo"}}
+      <h1>Dossier</h1>
+    {{/link-to}}
+    <div class="header-partition">
+      {{#if loggedInFacebook}}
+        <div class="fb-sign-out">Log Out</div>
+      {{else}}
+        <div class="fb-sign-in">Log In</div>
+      {{/if}}
+    </div>
+    <div class="header-partition">
+      {{#if loggedInLinkedIn}}
+        <div class="linked-sign-out hidden">Log Out</div>
+      {{else}}
+        <script type="IN/login" data-onAuth="showInSelect"></script>
+        <div class="linked-sign-in">Log In</div>
+      {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  {{outlet}}
+</div>

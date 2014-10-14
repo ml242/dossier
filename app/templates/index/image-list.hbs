@@ -1,0 +1,6 @@
+{{#each image in content.images}}
+  <a class="image-wrapper">
+    <div class="image-text invisible"><h1>{{unbound image.name}}</h1></div>
+    <img src="{{unbound image.url}}" class="attendee">
+  </a>
+{{/each}}
