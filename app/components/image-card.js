@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  onClick: function() {
+  click: function() {
     console.log('not implemented');
   }
 });
