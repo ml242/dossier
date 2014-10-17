@@ -110,6 +110,7 @@ a:visited {
   }
 }
 
+
 .IN-widget {
   opacity: 0;
 }
@@ -164,9 +165,14 @@ a:visited {
 
 .container {
   text-align: center;
+  // width: 75%;
   margin: 0 auto;
   height: 100%;
   overflow-y: initial;
+}
+
+.ember-view .image-wrapper {
+  float: left;
 }
 
 .sub-header {
