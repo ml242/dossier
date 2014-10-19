@@ -9,6 +9,7 @@ export default Ember.Controller.extend({
     return !!facebook;
   }.property('loggedInFacebook'),
 
+
   onSelectedEventAttendingChange: function() {
     var selectedEvent = this.get('selectedEventAttending');
     this.onSelectedEvent(selectedEvent);
@@ -21,5 +22,12 @@ export default Ember.Controller.extend({
     this.set('selectedEvent',selectedEvent);
     this.get('container').lookup('controller:facebook')
       .send('getImages',selectedEvent);
-  }
+  },
+  // RSVP: this.get('selectedEventRsvp'),
+  // onRSVPChange: function(selectedEvent, RSVP) {
+  //   var selected = this.get('select-facebook');
+  //   var RSVP = this.get('selectedEventRsvp')
+  //     .send('setRSVP', selected, RSVP);
+  // }.observes('RSVP')
+  
 });
