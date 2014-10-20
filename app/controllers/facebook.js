@@ -13,6 +13,9 @@ export default Ember.Controller.extend({
     },
     getImages: function(selectedEvent) {
       this.onGetImages(selectedEvent);
+    },
+    setRsvp: function(eventId, rsvpStatus) {
+      this.setRsvp(eventId, rsvpStatus);
     }
   },
 
@@ -118,20 +121,7 @@ export default Ember.Controller.extend({
     });
   },
 
-  setRSVP: function(eventId, RSVPstatus) {
-    return new Ember.RSVP.Promise(function(resolve, reject) {
-      try {
-        FB.api('/'+eventId+'/'+RSVPstatus, 'post', function(response) {
-          if (response) {
-            Ember.$('.container').fadeOut(1000);
-            window.location = "/";
-          }
-        });
-      } catch(err) {
-        reject(err);
-      }
-    });
-  },
+  
 
   getEventInfo: function(eventId) {
     FB.api('/'+eventId, function(response) {
@@ -168,6 +158,21 @@ export default Ember.Controller.extend({
       self.get('container').lookup('controller:index')
         .set('eventsDeclined',response.data);
     });
-  }
+  },
 
+  setRsvp: function(eventId, rsvpStatus) {
+    return new Ember.RSVP.Promise(function(resolve, reject) {
+      try {
+        FB.api('/'+eventId+'/'+rsvpStatus, 'post', function(response) {
+          if (response) {
+            // TODO
+            Ember.$('.container').fadeOut(1000);
+            window.location = "/";
+          }
+        });
+      } catch(err) {
+        reject(err);
+      }
+    });
+  }
 });

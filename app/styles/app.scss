@@ -1,5 +1,7 @@
 @import 'foundation';
 
+$header-height: 60px;
+
 @font-face {
   font-family: TravelingTypewriter;
   src: url(/fonts/TravelingTypewriter.ttf);
@@ -15,6 +17,7 @@
 body {
   background-image: url("/images/background-manilla.png");
   background-size: cover;
+  padding-top: $header-height;
 }
 
 em {
@@ -41,16 +44,16 @@ a:visited {
 
 .header {
   z-index: 10;
+  color: #fff;
+  font-size: 25px;
   position: fixed;
   top: -1px;
-  height: 60px;
+  height: $header-height;
   width: -moz-calc(100% - 6px);
   width: -webkit-calc(100% - 6px);
   width: calc(100% - 6px);
   text-align: center;
-  color: #fff;
   background: #4e68c7;
-  font-size: 25px;
   -moz-box-shadow: 1px 0px 1px #203891, 0px 1px 1px #3852b1, 2px 1px 1px #203891, 1px 2px 1px #3852b1, 3px 2px 1px #203891, 2px 3px 1px #3852b1, 4px 3px 1px #203891, 3px 4px 1px #3852b1, 5px 4px 1px #203891, 4px 5px 1px #3852b1, 6px 5px 1px #203891;
   -webkit-box-shadow: 1px 0px 1px #203891, 0px 1px 1px #3852b1, 2px 1px 1px #203891, 1px 2px 1px #3852b1, 3px 2px 1px #203891, 2px 3px 1px #3852b1, 4px 3px 1px #203891, 3px 4px 1px #3852b1, 5px 4px 1px #203891, 4px 5px 1px #3852b1, 6px 5px 1px #203891;
   box-shadow: 1px 0px 1px #203891, 0px 1px 1px #3852b1, 2px 1px 1px #203891, 1px 2px 1px #3852b1, 3px 2px 1px #203891, 2px 3px 1px #3852b1, 4px 3px 1px #203891, 3px 4px 1px #3852b1, 5px 4px 1px #203891, 4px 5px 1px #3852b1, 6px 5px 1px #203891;

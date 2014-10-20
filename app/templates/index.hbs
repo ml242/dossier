@@ -1,7 +1,21 @@
-{{partial 'index/event-selector'}}
-{{#if selectedEvent}}
+{{#if eventsAttending}}
+  {{select-facebook content=eventsAttending
+    title="You're going to:" value=selectedEventAttending}}
+  <br>
+{{/if}}
+
+{{#if eventsNotReplied}}
+  {{select-facebook content=eventsNotReplied
+    title="You've been invited to:" value=selectedEventNotReplied}}
+  <br>
+{{/if}}
+
+{{#if isEventSelected}}
   {{partial 'index/event-info'}}
-  {{partial 'index/image-list'}}
+  {{select-rsvp value=rsvp}}
+  {{#each image in content.images}}
+    {{image-card image=image}}
+  {{/each}}
 {{else}}
   {{partial 'index/intro-text'}}
 {{/if}}
