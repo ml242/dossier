@@ -10,12 +10,16 @@
   <br>
 {{/if}}
 
-{{#if isEventSelected}}
+{{#if currentEventId}}
   {{partial 'index/event-info'}}
   {{select-rsvp value=rsvp}}
-  {{#each image in content.images}}
-    {{image-card image=image}}
-  {{/each}}
+  <div class="row">
+    {{#each image in content.images}}
+      <div class="large-4 medium-6 small-12 columns">
+        {{image-card image=image}}
+      </div>
+    {{/each}}
+  </div>
 {{else}}
   {{partial 'index/intro-text'}}
 {{/if}}

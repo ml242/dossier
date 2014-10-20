@@ -174,9 +174,6 @@ a:visited {
   overflow-y: initial;
 }
 
-.ember-view .image-wrapper {
-  float: left;
-}
 
 .sub-header {
   margin: 80px auto 20px auto;
@@ -319,8 +316,8 @@ img {
   color: #000;
   font-family: Gafata, helvetica, sans-serif;
   background-color: rgba(255, 255, 255, 0.8);
-  width: 300px;
-  height: 300px;
+  width: 295px;
+  height: 305px;
   text-align: center;
   cursor: pointer;
   z-index: 9;

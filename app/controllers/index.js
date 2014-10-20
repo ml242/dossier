@@ -3,28 +3,32 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   needs: ['application', 'facebook'],
   loggedInFacebook: Ember.computed.alias('controllers.facebook.isLoggedIn'),
-
-  isEventSelected: function() {
-    return this.get('selectedEventAttending') ||
-      this.get('selectedEventNotReplied');
-  }.property('selectedEventAttending','selectedEventNotReplied'),
+  currentEventId: null,
 
   onSelectedEventAttending: function() {
-    var selectedEvent = this.get('selectedEventAttending');
-    if (selectedEvent)
-      this.get('controllers.facebook').send('getImages',selectedEvent);
+    var selectedEventId = this.get('selectedEventAttending');
+    if (selectedEventId) {
+      this.set('currentEventId', selectedEventId);
+      var fbCtrl = this.get('controllers.facebook');
+      fbCtrl.send('getImages', selectedEventId);
+      fbCtrl.send('getInfo', selectedEventId);
+    }
   }.observes('selectedEventAttending'),
 
   onSelectedEventNotReplied: function() {
-    var selectedEvent = this.get('selectedEventNotReplied');
-    if (selectedEvent)
-      this.get('controllers.facebook').send('getImages',selectedEvent);
+    var selectedEventId = this.get('selectedEventNotReplied');
+    if (selectedEventId) {
+      this.set('currentEventId', selectedEventId);
+      var fbCtrl = this.get('controllers.facebook');
+      fbCtrl.send('getImages', selectedEventId);
+      fbCtrl.send('getInfo', selectedEventId);
+    }
   }.observes('selectedEventNotReplied'),
 
   onRsvpChange: function() {
-    var selectedEvent = this.get('selectedEvent');
-    var rsvp = this.get('selectedEventRsvp');
-    if (rsvp)
-      this.get('controllers.facebook').send('setRsvp', selectedEvent, rsvp);
+    var currentEventId = this.get('currentEventId');
+    var rsvp = this.get('rsvp');
+    if (currentEventId && rsvp)
+      this.get('controllers.facebook').send('setRsvp', currentEventId, rsvp);
   }.observes('rsvp')
 });

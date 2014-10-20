@@ -16,6 +16,9 @@ export default Ember.Controller.extend({
     },
     setRsvp: function(eventId, rsvpStatus) {
       this.setRsvp(eventId, rsvpStatus);
+    },
+    getInfo: function(eventId) {
+      this.getEventInfo(eventId);
     }
   },
 
@@ -80,10 +83,14 @@ export default Ember.Controller.extend({
   onGetImages: function(eventId) {
     var self = this;
     var store = this.get('store');
-    this.getEventAttendees(eventId).then(function(attendees) {
-      attendees.data.forEach(function(attendee) {
-        self.getPicture(attendee.id).then(function(picture) {
-          store.find('user', 1).then(function(user) {
+    // TODO: optimize this
+    store.find('user',1).then(function(user) {
+      store.all('image').forEach(function(image) {
+        image.destroyRecord(); 
+      });
+      self.getEventAttendees(eventId).then(function(attendees) {
+        attendees.data.forEach(function(attendee) {
+          self.getPicture(attendee.id).then(function(picture) {
             store.createRecord('image', {
               url: picture.data.url,
               name: attendee.name,
@@ -121,13 +128,11 @@ export default Ember.Controller.extend({
     });
   },
 
-  
-
   getEventInfo: function(eventId) {
+    var self = this;
     FB.api('/'+eventId, function(response) {
-      console.log(response);
-      //response.venue.street+" "+response.venue.state+
-      //      " "+response.venue.zip));
+      self.get('container').lookup('controllers:index')
+        .set('selectedEvent',response);
     });
   },
 
