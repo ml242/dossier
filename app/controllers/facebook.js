@@ -23,8 +23,7 @@ export default Ember.Controller.extend({
       this.set('userId',response.authResponse.userId);
       this.getEventsAttending();
       this.getEventsNotReplied();
-      this.get('container').lookup('controller:application')
-        .set('loggedInFacebook',true);
+      this.set('isLoggedIn', true);
     }
   },
 

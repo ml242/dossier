@@ -2,13 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   needs: ['application'],
-  loggedInFacebook: Ember.computed.alias(
-    'controllers.application.loggedInFacebook'),
+  loggedInFacebook: Ember.computed.alias('controllers.facebook.isLoggedIn'),
   loggedIn: function() {
     var facebook = this.get('loggedInFacebook');
     return !!facebook;
   }.property('loggedInFacebook'),
-
 
   onSelectedEventAttendingChange: function() {
     var selectedEvent = this.get('selectedEventAttending');
