@@ -30,6 +30,7 @@ export default Ember.Controller.extend({
       this.getEventsAttending();
       this.getEventsNotReplied();
       this.set('isLoggedIn', true);
+      // return true
     }
   },
 

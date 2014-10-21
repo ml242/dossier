@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   needs: ['application', 'facebook'],
-  loggedInFacebook: Ember.computed.alias('controllers.facebook.isLoggedIn'),
+  // isLoggedIn: Ember.computed.alias('controllers.facebook.onLogin'),
+  isLoggedIn: 'controllers.facebook.onLogin',
   currentEventId: null,
 
   onSelectedEventAttending: function() {
@@ -31,4 +32,6 @@ export default Ember.Controller.extend({
     if (currentEventId && rsvp)
       this.get('controllers.facebook').send('setRsvp', currentEventId, rsvp);
   }.observes('rsvp')
+
+
 });
