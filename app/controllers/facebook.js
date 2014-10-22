@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
   fbKeyDev: '762893740391021',
   fbKeyProd: '683432475029309',
   redirectUri: "http://dossier-app.herokuapp.com/auth/facebook/callback",
+  isLoggedIn: false,
 
   actions: {
     initScripts: function() {
@@ -30,7 +31,6 @@ export default Ember.Controller.extend({
       this.getEventsAttending();
       this.getEventsNotReplied();
       this.set('isLoggedIn', true);
-      // return true
     }
   },
 

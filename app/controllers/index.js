@@ -2,8 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   needs: ['application', 'facebook'],
-  // isLoggedIn: Ember.computed.alias('controllers.facebook.onLogin'),
-  isLoggedIn: 'controllers.facebook.onLogin',
   currentEventId: null,
 
   onSelectedEventAttending: function() {
