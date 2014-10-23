@@ -3,3 +3,7 @@ need an event to trigger a logout
 set a listener for the logout
 
 need isLoggedIn: false
+
+Ember.serviceProviders
+  create a services folder
+  export an object

@@ -1,25 +1,32 @@
-{{#if eventsAttending}}
-  {{select-facebook content=eventsAttending
-    title="You're going to:" value=selectedEventAttending}}
-  <br>
-{{/if}}
+{{#if isLoggedIn}}
 
-{{#if eventsNotReplied}}
-  {{select-facebook content=eventsNotReplied
-    title="You've been invited to:" value=selectedEventNotReplied}}
-  <br>
-{{/if}}
 
-{{#if currentEventId}}
-  {{partial 'index/event-info'}}
-  {{select-rsvp value=rsvp}}
-  <div class="row">
-    {{#each image in content.images}}
-      <div class="large-4 medium-6 small-12 columns">
-        {{image-card image=image}}
-      </div>
-    {{/each}}
-  </div>
-{{else}}
-  {{partial 'index/intro-text'}}
+
+  {{#if eventsAttending}}
+    {{select-facebook content=eventsAttending
+      title="You're going to:" value=selectedEventAttending}}
+    <br>
+  {{/if}}
+
+  {{#if eventsNotReplied}}
+    {{select-facebook content=eventsNotReplied
+      title="You've been invited to:" value=selectedEventNotReplied}}
+    <br>
+  {{/if}}
+
+  {{#if currentEventId}}
+    {{partial 'index/event-info'}}
+    {{select-rsvp value=rsvp}}
+    <div class="row">
+      {{#each image in content.images}}
+        <div class="large-4 medium-6 small-12 columns">
+          {{image-card image=image}}
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    {{partial 'index/intro-text'}}
+  {{/if}}
+
+
 {{/if}}
