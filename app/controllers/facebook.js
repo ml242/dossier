@@ -81,7 +81,6 @@ export default Ember.Controller.extend({
         if (response.authResponse) {
           FB.logout();
           self.onLogOut();
-          debugger;
           Ember.$(".fb-select-container").fadeOut(500, function() {
             Ember.$(".fb-select-container").html("");
           });
