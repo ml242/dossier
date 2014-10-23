@@ -1,0 +1,5 @@
+need an event to trigger a logout
+
+set a listener for the logout
+
+need isLoggedIn: false

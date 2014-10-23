@@ -1,5 +1,9 @@
 // https://developers.facebook.com/docs/graph-api/reference/v2.1/event
 
+//  use actions to invoke the functions
+
+//  begin to use routes to control app
+
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
@@ -32,6 +36,10 @@ export default Ember.Controller.extend({
       this.getEventsNotReplied();
       this.set('isLoggedIn', true);
     }
+  },
+
+  onLogOut: function(){
+    this.set('isLoggedIn', false);
   },
 
   onInitScripts: function() {
@@ -72,6 +80,7 @@ export default Ember.Controller.extend({
       FB.getLoginStatus(function(response) {
         if (response.authResponse) {
           FB.logout();
+          self.onLogOut();
           Ember.$(".fb-select-container").fadeOut(500, function() {
             Ember.$(".fb-select-container").html("");
           });
