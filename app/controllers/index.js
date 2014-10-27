@@ -31,7 +31,7 @@ export default Ember.Controller.extend({
     var rsvp = this.get('rsvp');
     if (currentEventId && rsvp)
       this.get('controllers.facebook').send('setRsvp', currentEventId, rsvp);
-  }.observes('rsvp')
+  }.observes('rsvp');
 
 
 });

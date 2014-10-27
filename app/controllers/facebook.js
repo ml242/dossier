@@ -184,7 +184,7 @@ export default Ember.Controller.extend({
           if (response) {
             // TODO
             Ember.$('.container').fadeOut(1000);
-            window.location = "/";
+            // Reset the VIEW HERE important
           }
         });
       } catch(err) {
