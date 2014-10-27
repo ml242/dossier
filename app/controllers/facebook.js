@@ -146,6 +146,8 @@ export default Ember.Controller.extend({
     });
   },
 
+
+  // this really needs to get converted to an ember object
   getEventsAttending: function() {
     var self = this;
     FB.api('/me/events', function(response) {
@@ -153,7 +155,7 @@ export default Ember.Controller.extend({
       // add placeholder text
       response.data.unshift({id:'', name:'You\'re going to:'});
       self.get('container').lookup('controller:index')
-        .set('eventsAttending',response.data);
+        .set('eventsAttending', response.data);
     });
   },
 
