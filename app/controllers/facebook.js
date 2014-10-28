@@ -7,6 +7,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  needs: ['index','application'],
   fbKeyDev: '762893740391021',
   fbKeyProd: '683432475029309',
   redirectUri: "http://dossier-app.herokuapp.com/auth/facebook/callback",
@@ -20,6 +21,7 @@ export default Ember.Controller.extend({
       this.onGetImages(selectedEvent);
     },
     setRsvp: function(eventId, rsvpStatus) {
+      console.log(rsvpStatus);
       this.setRsvp(eventId, rsvpStatus);
     },
     getInfo: function(eventId) {
@@ -141,8 +143,8 @@ export default Ember.Controller.extend({
   getEventInfo: function(eventId) {
     var self = this;
     FB.api('/'+eventId, function(response) {
-      self.get('container').lookup('controllers:index')
-        .set('selectedEvent',response);
+      self.get('container').lookup('controller:index')
+        .set('selectedEvent', response);
     });
   },
 
@@ -152,7 +154,7 @@ export default Ember.Controller.extend({
     var self = this;
     FB.api('/me/events', function(response) {
       console.log(response);
-      // add placeholder text
+      // add placeholder text (event info);
       response.data.unshift({id:'', name:'You\'re going to:'});
       self.get('container').lookup('controller:index')
         .set('eventsAttending', response.data);
@@ -178,13 +180,17 @@ export default Ember.Controller.extend({
   },
 
   setRsvp: function(eventId, rsvpStatus) {
+    var self = this;
     return new Ember.RSVP.Promise(function(resolve, reject) {
       try {
+        console.log('about to rsvp');
         FB.api('/'+eventId+'/'+rsvpStatus, 'post', function(response) {
           if (response) {
-            // TODO
-            Ember.$('.container').fadeOut(1000);
-            // Reset the VIEW HERE important
+            self.get('controllers.application.alerts')
+              .pushObject({
+                type: 'success',
+                message: 'RSVP saved'
+              });
           }
         });
       } catch(err) {

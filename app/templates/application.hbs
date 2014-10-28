@@ -1,3 +1,9 @@
+{{#each alert in alerts}}
+  <p {{bind-attr class=alert.type}}>
+    {{alert.message}}
+    <a {{action 'clearAlert' alert}}>X</a>
+  </p>
+{{/each}}
 <div class="header">
   <div class="header-inner">
     {{#link-to 'index' class="logo"}}

@@ -26,12 +26,11 @@ export default Ember.Controller.extend({
   }.observes('selectedEventNotReplied'),
 
   onRsvpChange: function() {
-    console.log('in rsvp function');
     var currentEventId = this.get('currentEventId');
     var rsvp = this.get('rsvp');
     if (currentEventId && rsvp)
       this.get('controllers.facebook').send('setRsvp', currentEventId, rsvp);
-  }.observes('rsvp');
+  }.observes('rsvp')
 
 
 });
