@@ -144,6 +144,7 @@ export default Ember.Controller.extend({
     var self = this;
     FB.api('/'+eventId, function(response) {
       self.get('container').lookup('controller:index')
+      // self.get('.eventInfoPanel').lookup('controller:index')
         .set('selectedEvent', response);
     });
   },
